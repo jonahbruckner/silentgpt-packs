@@ -5,8 +5,8 @@ import { WhatsInside } from "@/components/pack/WhatsInside";
 import { ValueProposition } from "@/components/pack/ValueProposition";
 import { FAQ } from "@/components/pack/FAQ";
 
-const GUMROAD_URL = "https://silentgpt.gumroad.com/l/python-data-engineering-pack-1";
-const FREE_ARTICLES_URL = "https://silentgpt-dev-engine.netlify.app/python-data/articles/";
+const GUMROAD_PYDATA = "https://silentgpt.gumroad.com/l/python-data-engineering-pack-1";
+const HUGO_PYDATA_ARTICLES = "https://silentgpt-dev-engine.netlify.app/python-data/articles/";
 
 const whatsInsideItems = [
   {
@@ -68,12 +68,12 @@ const PythonDataPage = () => {
         headline="Turn slow, fragile data scripts into solid pipelines."
         subheadline="A performance & reliability playbook for pandas and ETL: a full performance blueprint plus focused articles on chunking, memory, cleaning and pipeline structure."
         primaryCta={{
-          label: "Get Python Data Engineering Pack #1 · 29 €",
-          href: GUMROAD_URL,
+          label: "Get Python Data Engineering Package",
+          href: GUMROAD_PYDATA,
         }}
         secondaryCta={{
           label: "Preview free Python data articles",
-          href: FREE_ARTICLES_URL,
+          href: HUGO_PYDATA_ARTICLES,
         }}
         gradient="from-emerald-500 to-teal-500"
       />
@@ -91,11 +91,11 @@ const PythonDataPage = () => {
         ]}
         primaryCta={{
           label: "Get the pack on Gumroad",
-          href: GUMROAD_URL,
+          href: GUMROAD_PYDATA,
         }}
         secondaryCta={{
           label: "Browse free articles",
-          href: FREE_ARTICLES_URL,
+          href: HUGO_PYDATA_ARTICLES,
         }}
       />
 

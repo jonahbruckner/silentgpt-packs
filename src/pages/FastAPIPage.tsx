@@ -5,8 +5,8 @@ import { WhatsInside } from "@/components/pack/WhatsInside";
 import { ValueProposition } from "@/components/pack/ValueProposition";
 import { FAQ } from "@/components/pack/FAQ";
 
-const GUMROAD_URL = "https://silentgpt.gumroad.com/l/fastapi-backend-pack-1";
-const FREE_ARTICLES_URL = "https://silentgpt-dev-engine.netlify.app/fastapi/articles/";
+const GUMROAD_FASTAPI = "https://silentgpt.gumroad.com/l/fastapi-backend-pack-1";
+const HUGO_FASTAPI_ARTICLES = "https://silentgpt-dev-engine.netlify.app/fastapi/articles/";
 
 const whatsInsideItems = [
   {
@@ -68,12 +68,12 @@ const FastAPIPage = () => {
         headline="Stop debugging FastAPI by guessing."
         subheadline="A debugging & architecture playbook for real FastAPI projects – from 500 errors and SQLModel issues to async traps and production logging."
         primaryCta={{
-          label: "Get FastAPI Backend Pack #1 · 29 €",
-          href: GUMROAD_URL,
+          label: "Get FastAPI Backend Package",
+          href: GUMROAD_FASTAPI,
         }}
         secondaryCta={{
           label: "Preview free FastAPI articles",
-          href: FREE_ARTICLES_URL,
+          href: HUGO_FASTAPI_ARTICLES,
         }}
         gradient="from-cyan-500 to-blue-500"
       />
@@ -91,11 +91,11 @@ const FastAPIPage = () => {
         ]}
         primaryCta={{
           label: "Get the pack on Gumroad",
-          href: GUMROAD_URL,
+          href: GUMROAD_FASTAPI,
         }}
         secondaryCta={{
           label: "Browse free articles",
-          href: FREE_ARTICLES_URL,
+          href: HUGO_FASTAPI_ARTICLES,
         }}
       />
 
