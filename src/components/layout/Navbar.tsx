@@ -5,6 +5,9 @@ const navItems = [
   { label: "Overview", href: "/" },
   { label: "FastAPI Pack", href: "/fastapi" },
   { label: "Python Data Pack", href: "/python-data" },
+  { label: "Blog", href: "/blog" },
+  { label: "Newsletter", href: "/newsletter" },
+  { label: "Free Pack", href: "/free-pack" },
 ];
 
 export function Navbar() {
