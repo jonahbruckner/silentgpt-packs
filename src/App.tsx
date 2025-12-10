@@ -6,6 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import FastAPIPage from "./pages/FastAPIPage";
 import PythonDataPage from "./pages/PythonDataPage";
+import ImpressumPage from "./pages/ImpressumPage";
+import DatenschutzPage from "./pages/DatenschutzPage";
+import HaftungPage from "./pages/HaftungPage";
+import AGBPage from "./pages/AGBPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +24,10 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/fastapi" element={<FastAPIPage />} />
           <Route path="/python-data" element={<PythonDataPage />} />
+          <Route path="/impressum" element={<ImpressumPage />} />
+          <Route path="/datenschutz" element={<DatenschutzPage />} />
+          <Route path="/haftung" element={<HaftungPage />} />
+          <Route path="/agb" element={<AGBPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
