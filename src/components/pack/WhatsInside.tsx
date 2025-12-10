@@ -12,7 +12,7 @@ export function WhatsInside({ items }: WhatsInsideProps) {
         <div className="text-center mb-16">
           <p className="section-label mb-4">Contents</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            What's inside
+            What's inside?
           </h2>
         </div>
 

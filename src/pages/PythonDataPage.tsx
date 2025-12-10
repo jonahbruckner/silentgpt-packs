@@ -11,52 +11,50 @@ const HUGO_PYDATA_ARTICLES = "https://silentgpt-dev-engine.netlify.app/python-da
 const whatsInsideItems = [
   {
     title: "Performance Blueprint",
-    description: "The flagship guide covering pandas optimization, memory management, and processing large datasets efficiently.",
+    description: "How to profile, measure and optimize Python data scripts without guessing.",
   },
   {
     title: "Pandas Recipes",
-    description: "Chunked CSV processing, dtype optimization, and patterns for handling data that doesn't fit in memory.",
+    description: "Focused articles on chunking, joins, groupby performance and dtype management.",
   },
   {
     title: "ETL Patterns",
-    description: "Pipeline structure, data validation, and how to build robust extraction-transform-load workflows.",
+    description: "Examples for structuring ETL scripts so they stay readable and maintainable.",
   },
   {
     title: "Reliability Focus",
-    description: "Testing strategies, logging, and error handling for production data pipelines.",
+    description: "Handling dirty data, logging failures and testing pipelines so they don’t break silently.",
   },
 ];
 
 const whoIsThisFor = [
-  "Data engineers building ETL pipelines",
-  "Analysts working with large CSV files",
-  "ML engineers preprocessing datasets",
-  "Python devs who need faster data scripts",
+  "Data engineers and Python devs maintaining real pipelines.",
+  "Analysts/ML engineers moving from notebooks to reproducible scripts.",
+  "Anyone processing CSVs that are big enough to hurt.",
 ];
 
 const whyItsWorthIt = [
-  "Stop waiting for slow pandas scripts",
-  "Patterns for processing files larger than RAM",
-  "Reusable ETL templates you can adapt",
-  "Lifetime updates as the engine grows",
+  "Fixing one bottleneck or crash can easily save multiple hours.",
+  "The patterns are reusable across clients, projects and future pipelines.",
+  "You’re building your own internal data-engineering playbook instead of starting from scratch each time.",
 ];
 
 const faqItems = [
   {
-    question: "Is this just AI-generated content?",
-    answer: "Content is LLM-assisted but curated and structured by hand. Every article passes quality checks before inclusion. No random AI fluff.",
+    question: "Do I need big data tools for this?",
+    answer: "No. This pack is about getting the most out of plain Python and pandas before you need heavy infrastructure.",
   },
   {
-    question: "In which format do I get the content?",
-    answer: "Pure Markdown files. Drop them into Git, Obsidian, Notion, or any markdown-compatible tool. No vendor lock-in.",
+    question: "Can I use this with Jupyter notebooks?",
+    answer: "Yes. The articles are written so you can apply them in notebooks and then move working patterns into scripts and pipelines.",
   },
   {
     question: "Do I get updates?",
     answer: "Yes. When the engine produces new high-quality Python data articles, they're added to the pack. You get lifetime access to updates.",
   },
   {
-    question: "Does this cover libraries beyond pandas?",
-    answer: "The focus is on pandas and standard library tools for ETL. Future updates may include polars and other libraries as the engine grows.",
+    question: "Will this replace full data-engineering books?",
+    answer: "No. It’s a focused playbook for concrete, recurring problems – performance, memory, cleaning, ETL structure – not a generic textbook.",
   },
 ];
 
@@ -66,13 +64,13 @@ const PythonDataPage = () => {
       <PackHero
         kicker="PYTHON DATA ENGINEERING PACK #1"
         headline="Turn slow, fragile data scripts into solid pipelines."
-        subheadline="A performance & reliability playbook for pandas and ETL: a full performance blueprint plus focused articles on chunking, memory, cleaning and pipeline structure."
+        subheadline="A performance & reliability playbook for pandas-based workflows – built around a performance blueprint plus focused articles on chunking, memory, cleaning and ETL structure."
         primaryCta={{
-          label: "Get Python Data Engineering Package",
+          label: "Get Python Data Engineering Package #1 · 29 €",
           href: GUMROAD_PYDATA,
         }}
         secondaryCta={{
-          label: "Preview free Python data articles",
+          label: "Preview Free Python Data Engineering Articles",
           href: HUGO_PYDATA_ARTICLES,
         }}
         gradient="from-emerald-500 to-teal-500"
@@ -80,14 +78,14 @@ const PythonDataPage = () => {
 
       <PricingCard
         badge="Performance & Reliability Playbook"
-        title="What you get"
+        title="What you get:"
         price="29 €"
         benefits={[
-          "Python Data Performance Blueprint",
-          "Chunked CSV processing patterns",
-          "dtype & memory optimization guides",
-          "ETL structure and pipeline patterns",
-          "Robustness & logging / testing recipes",
+          "Python Data Performance Blueprint to identify CPU, I/O and memory bottlenecks.",
+          "Chunked CSV-processing patterns for datasets that don't fit into RAM.",
+          "dtype and memory-optimization strategies for realistic pandas workloads.",
+          "Clean ETL structure: separate extract, transform and load into testable steps.",
+          "Markdown-native content to reuse across projects and data teams.",
         ]}
         primaryCta={{
           label: "Get the pack on Gumroad",

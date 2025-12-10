@@ -11,14 +11,14 @@ export function Hero() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="gradient-text">SilentGPT Dev Engine</span>
                 <span className="block text-foreground mt-2">
-                  – your private content machine for FastAPI and Python data.
+                  – curated content packs for real backend work.
                 </span>
               </h1>
             </div>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
-              An internal engine that harvests real questions, generates LLM drafts, 
-              scores them and turns the best articles into sellable developer packs.
+              An internal LLM engine that turns real FastAPI and Python data problems into structured, 
+              markdown-native guides and packs – so you stop Googling the same issues every week.
             </p>
 
             <div className="flex flex-wrap gap-4">

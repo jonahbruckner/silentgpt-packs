@@ -11,44 +11,42 @@ const HUGO_FASTAPI_ARTICLES = "https://silentgpt-dev-engine.netlify.app/fastapi/
 const whatsInsideItems = [
   {
     title: "Debugging Blueprint",
-    description: "The flagship guide covering 500 errors, tracebacks, and systematic debugging approaches for FastAPI.",
+    description: "A step-by-step guide for analyzing 500s, tracing import/DI issues and separating environment from code problems.",
   },
   {
     title: "Recipes & Playbooks",
-    description: "10+ focused articles on SQLModel sessions, async patterns, and common pitfalls.",
+    description: "Short, focused articles for recurring issues in SQLModel, async background tasks and dependency injection.",
   },
   {
     title: "Architecture Notes",
-    description: "DI patterns, project structure, and how to organize growing FastAPI codebases.",
+    description: "How to structure routers, services and repositories so your project stays maintainable.",
   },
   {
     title: "Production Focus",
-    description: "Logging, error handling, and patterns for real deployments, not toy examples.",
+    description: "Patterns assume real deployments: Docker, Render, logging, unstable environments – not just toy examples.",
   },
 ];
 
 const whoIsThisFor = [
-  "Backend devs building APIs with FastAPI",
-  "Solo developers or small teams",
-  "Anyone tired of debugging by trial and error",
-  "Devs who want reusable reference material",
+  "Backend devs shipping FastAPI APIs to production.",
+  "Solo devs or small teams without a dedicated backend architect.",
+  "People who want a reusable FastAPI handbook instead of random blog bookmarks.",
 ];
 
 const whyItsWorthIt = [
-  "Hours of debugging time saved",
-  "Reusable patterns you can copy into projects",
-  "Markdown files for your personal knowledge base",
-  "Lifetime updates as the engine grows",
+  "One fixed session leak or async deadlock can save you more than 29 € in a single evening.",
+  "The patterns are reusable across multiple projects and clients.",
+  "You are building your own, growing troubleshooting system – not buying a one-off blog post.",
 ];
 
 const faqItems = [
   {
-    question: "Is this just AI-generated content?",
-    answer: "Content is LLM-assisted but curated and structured by hand. Every article passes quality checks before inclusion. No random AI fluff.",
+    question: "Is this just raw AI-generated content?",
+    answer: "No. The engine uses LLMs to draft content, but drafts are scored, filtered and structured into a coherent playbook. Low-quality pieces are discarded. The goal is to capture patterns that actually work in real FastAPI backends.",
   },
   {
     question: "In which format do I get the content?",
-    answer: "Pure Markdown files. Drop them into Git, Obsidian, Notion, or any markdown-compatible tool. No vendor lock-in.",
+    answer: "You get pure Markdown files. That makes it easy to use them in Git, Obsidian, Notion or your own internal documentation.",
   },
   {
     question: "Do I get updates?",
@@ -56,7 +54,7 @@ const faqItems = [
   },
   {
     question: "Is this suitable for beginners?",
-    answer: "The pack assumes basic FastAPI knowledge. It's focused on debugging and production patterns, not intro tutorials.",
+    answer: "Yes. When the engine produces new, high-quality FastAPI articles that fit this pack, the pack is updated and you can download the new version from Gumroad at no extra cost.",
   },
 ];
 
@@ -66,13 +64,13 @@ const FastAPIPage = () => {
       <PackHero
         kicker="FASTAPI BACKEND PACK #1"
         headline="Stop debugging FastAPI by guessing."
-        subheadline="A debugging & architecture playbook for real FastAPI projects – from 500 errors and SQLModel issues to async traps and production logging."
+        subheadline="A debugging & architecture playbook for real FastAPI backends – built around a full debugging blueprint plus 10+ focused recipes for SQLModel, async, logging and project structure."
         primaryCta={{
-          label: "Get FastAPI Backend Package",
+          label: "Get FastAPI Backend Pack #1 · 29 €",
           href: GUMROAD_FASTAPI,
         }}
         secondaryCta={{
-          label: "Preview free FastAPI articles",
+          label: "Preview Free FastAPI Articles",
           href: HUGO_FASTAPI_ARTICLES,
         }}
         gradient="from-cyan-500 to-blue-500"
@@ -80,14 +78,14 @@ const FastAPIPage = () => {
 
       <PricingCard
         badge="Debugging & Architecture Playbook"
-        title="What you get"
+        title="What you get:"
         price="29 €"
         benefits={[
-          "The Debugging Blueprint as core reference",
-          "SQLModel session patterns (sync & async)",
-          "DI and project structure patterns",
-          "Logging & error-handling recipes",
-          "Markdown files ready for Git / Obsidian / Notion",
+          "Includes the full FastAPI Debugging Blueprint as the core guide.",
+          "SQLModel session patterns (sync & async) that prevent leaks and random crashes.",
+          "Clean dependency injection and project structure patterns for growing APIs.",
+          "Logging & error-handling recipes so you debug from logs, not from the frontend.",
+          "All content as Markdown – ready for Git, Obsidian or your internal docs",
         ]}
         primaryCta={{
           label: "Get the pack on Gumroad",

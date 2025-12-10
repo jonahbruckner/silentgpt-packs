@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const packs = [
   {
     title: "FastAPI Backend Pack #1",
-    description: "A debugging & architecture playbook for real FastAPI projects. Covers 500 errors, SQLModel, async patterns, and production logging.",
+    description: "Debugging & architecture playbook for FastAPI APIs – with a full debugging blueprint plus 10+ focused recipes for SQLModel, async, logging and structure.",
     price: "29 €",
     href: "/fastapi",
     freeArticles: "https://silentgpt-dev-engine.netlify.app/fastapi/articles/",
@@ -11,7 +11,7 @@ const packs = [
   },
   {
     title: "Python Data Engineering Pack #1",
-    description: "Performance & reliability playbook for pandas and ETL. Covers chunking, memory optimization, and pipeline structure.",
+    description: "Performance & reliability playbook for pandas and ETL – from chunking big CSVs to structuring robust data pipelines.",
     price: "29 €",
     href: "/python-data",
     freeArticles: "https://silentgpt-dev-engine.netlify.app/python-data/articles/",
@@ -58,7 +58,7 @@ export function AvailablePacks() {
 
                   <div className="flex flex-col sm:flex-row gap-3">
                     <Link to={pack.href} className="btn-primary flex-1 text-center">
-                      View pack page
+                      View Pack Page
                     </Link>
                     <a
                       href={pack.freeArticles}
@@ -66,7 +66,7 @@ export function AvailablePacks() {
                       rel="noopener noreferrer"
                       className="btn-ghost text-center"
                     >
-                      Preview free articles →
+                      Preview Free Articles →
                     </a>
                   </div>
                 </div>
