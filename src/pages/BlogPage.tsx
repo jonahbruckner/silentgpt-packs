@@ -13,31 +13,31 @@ const BlogPage = () => {
         ogImage="/og/blog.png"
       />
       
-      <section className="py-24 md:py-32">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-16">
-            <span className="section-label text-cyan-400 mb-4 block">Blog</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+      <section className="py-16 sm:py-20 md:py-28 lg:py-32">
+        <div className="container px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <span className="section-label text-cyan-400 mb-3 sm:mb-4 block">Blog</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
               Engineering Insights
             </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
               Deep dives into FastAPI debugging, Python data performance, and practical patterns for production systems.
             </p>
           </div>
           
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {blogPosts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="block card-glass rounded-2xl p-6 hover:border-cyan-500/30 transition-all group"
+                className="block card-glass rounded-xl sm:rounded-2xl p-5 sm:p-6 hover:border-cyan-500/30 transition-all group"
               >
-                <div className="flex flex-col md:flex-row md:items-center gap-4">
+                <div className="flex flex-col gap-3 sm:gap-4">
                   <div className="flex-1">
-                    <h2 className="text-xl font-semibold text-foreground group-hover:text-cyan-400 transition-colors mb-2">
+                    <h2 className="text-lg sm:text-xl font-semibold text-foreground group-hover:text-cyan-400 transition-colors mb-2">
                       {post.title}
                     </h2>
-                    <p className="text-muted-foreground text-sm mb-3">
+                    <p className="text-sm sm:text-base text-muted-foreground mb-2 sm:mb-3">
                       {post.excerpt}
                     </p>
                     <time className="text-xs text-muted-foreground/60">

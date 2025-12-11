@@ -25,7 +25,7 @@ export function NewsletterForm({ compact = false }: NewsletterFormProps) {
 
   if (submitted) {
     return (
-      <div className={`text-center ${compact ? "py-4" : "py-8"}`}>
+      <div className={`text-center ${compact ? "py-4" : "py-6 sm:py-8"}`}>
         <div className="inline-flex items-center gap-2 text-emerald-400">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -40,18 +40,18 @@ export function NewsletterForm({ compact = false }: NewsletterFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={`flex ${compact ? "flex-col sm:flex-row gap-3" : "flex-col sm:flex-row gap-4"}`}>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4">
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="your@email.com"
         required
-        className={`flex-1 px-4 ${compact ? "py-2.5" : "py-3"} bg-background/50 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all`}
+        className={`w-full px-4 ${compact ? "py-3" : "py-3 sm:py-4"} bg-background/50 border border-border/50 rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-base`}
       />
       <button
         type="submit"
-        className={`btn-primary whitespace-nowrap ${compact ? "py-2.5" : ""}`}
+        className={`btn-primary w-full whitespace-nowrap ${compact ? "py-3" : "py-3 sm:py-4"}`}
       >
         Join the newsletter
       </button>

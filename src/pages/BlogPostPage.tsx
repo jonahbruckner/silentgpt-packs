@@ -21,11 +21,11 @@ const BlogPostPage = () => {
         ogImage="/og/blog.png"
       />
       
-      <article className="py-24 md:py-32">
-        <div className="container max-w-3xl">
+      <article className="py-16 sm:py-20 md:py-28 lg:py-32">
+        <div className="container px-4 sm:px-6 lg:px-8 max-w-3xl">
           <Link 
             to="/blog"
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-cyan-400 transition-colors mb-8"
+            className="inline-flex items-center text-sm text-muted-foreground hover:text-cyan-400 transition-colors mb-6 sm:mb-8"
           >
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -33,31 +33,31 @@ const BlogPostPage = () => {
             Back to blog
           </Link>
           
-          <header className="mb-12">
-            <time className="text-sm text-muted-foreground/60 block mb-4">
+          <header className="mb-8 sm:mb-12">
+            <time className="text-sm text-muted-foreground/60 block mb-3 sm:mb-4">
               {new Date(post.publishDate).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
               })}
             </time>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 sm:mb-6">
               {post.title}
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base sm:text-lg text-muted-foreground">
               {post.excerpt}
             </p>
           </header>
           
           <div 
-            className="prose prose-invert prose-lg max-w-none
+            className="prose prose-invert prose-sm sm:prose-base md:prose-lg max-w-none
               prose-headings:text-foreground prose-headings:font-semibold
-              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+              prose-h2:text-xl sm:prose-h2:text-2xl prose-h2:mt-8 sm:prose-h2:mt-10 prose-h2:mb-3 sm:prose-h2:mb-4
               prose-p:text-muted-foreground prose-p:leading-relaxed
               prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline
               prose-strong:text-foreground
-              prose-code:text-cyan-400 prose-code:bg-background/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-              prose-pre:bg-background/50 prose-pre:border prose-pre:border-border/50 prose-pre:rounded-xl
+              prose-code:text-cyan-400 prose-code:bg-background/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs sm:prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+              prose-pre:bg-background/50 prose-pre:border prose-pre:border-border/50 prose-pre:rounded-xl prose-pre:overflow-x-auto
               prose-ul:text-muted-foreground prose-li:text-muted-foreground"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
@@ -65,16 +65,16 @@ const BlogPostPage = () => {
           <ShareBar title={post.title} url={`/blog/${post.slug}`} />
           
           {/* CTAs */}
-          <div className="mt-12 pt-8 border-t border-border/30">
-            <h3 className="text-lg font-semibold text-foreground mb-6">
+          <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-border/30">
+            <h3 className="text-base sm:text-lg font-semibold text-foreground mb-4 sm:mb-6">
               Want more like this?
             </h3>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-3">
               <a
                 href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary text-center"
+                className="btn-primary text-center w-full sm:w-auto"
               >
                 FastAPI Pack · 29 €
               </a>
@@ -82,7 +82,7 @@ const BlogPostPage = () => {
                 href="https://silentgpt.gumroad.com/l/python-data-engineering-pack-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary text-center"
+                className="btn-secondary text-center w-full sm:w-auto"
               >
                 Python Data Pack · 29 €
               </a>

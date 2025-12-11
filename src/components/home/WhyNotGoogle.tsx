@@ -19,26 +19,26 @@ const reasons = [
 
 export function WhyNotGoogle() {
   return (
-    <section className="py-24">
-      <div className="container">
+    <section className="py-16 sm:py-20 md:py-24">
+      <div className="container px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="section-label mb-4">Value</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <p className="section-label mb-3 sm:mb-4">Value</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4 sm:mb-6">
             Why not just Google it?
           </h2>
-          <p className="text-lg text-muted-foreground mb-12">
+          <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-12">
             Because scattered search results don't build a knowledge base. 
             These packs do.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
           {reasons.map((reason) => (
-            <div key={reason.title} className="text-center p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+            <div key={reason.title} className="text-center p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">
                 {reason.title}
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs sm:text-sm text-muted-foreground">
                 {reason.description}
               </p>
             </div>

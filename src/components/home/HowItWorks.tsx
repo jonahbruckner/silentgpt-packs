@@ -43,33 +43,33 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-24 bg-radial-bottom">
-      <div className="container">
-        <div className="text-center mb-16">
-          <p className="section-label mb-4">Process</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+    <section className="py-16 sm:py-20 md:py-24 bg-radial-bottom">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <p className="section-label mb-3 sm:mb-4">Process</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             How the engine works
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className="relative card-glass p-6 group hover:border-primary/30 transition-colors duration-300"
+              className="relative card-glass p-5 sm:p-6 group hover:border-primary/30 transition-colors duration-300"
             >
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-border to-transparent" />
               )}
               
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex items-center justify-center text-primary">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 flex items-center justify-center text-primary flex-shrink-0">
                   {step.icon}
                 </div>
                 <span className="text-xs font-mono text-muted-foreground">{step.number}</span>
               </div>
               
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-foreground mb-2">
                 {step.title}
               </h3>
               <p className="text-sm text-muted-foreground">

@@ -140,26 +140,26 @@ Good logging is an investment, not overhead.`,
         ogImage="/og/home.png"
       />
       
-      <section className="py-24 md:py-32">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-16">
-            <span className="section-label text-cyan-400 mb-4 block">Resources</span>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+      <section className="py-16 sm:py-20 md:py-28 lg:py-32">
+        <div className="container px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <div className="text-center mb-10 sm:mb-12 md:mb-16">
+            <span className="section-label text-cyan-400 mb-3 sm:mb-4 block">Resources</span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
               Social Templates
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base sm:text-lg text-muted-foreground">
               Ready-to-post LinkedIn content, carousel outlines, and short-form tips. Copy, customize, post.
             </p>
           </div>
           
           {/* LinkedIn Posts */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">LinkedIn Posts</h2>
-            <div className="space-y-6">
+          <div className="mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">LinkedIn Posts</h2>
+            <div className="space-y-4 sm:space-y-6">
               {linkedInPosts.map((post, index) => (
-                <div key={index} className="card-glass rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">{post.title}</h3>
-                  <pre className="text-sm text-muted-foreground whitespace-pre-wrap font-mono bg-background/50 p-4 rounded-xl border border-border/50">
+                <div key={index} className="card-glass rounded-xl sm:rounded-2xl p-5 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">{post.title}</h3>
+                  <pre className="text-xs sm:text-sm text-muted-foreground whitespace-pre-wrap font-mono bg-background/50 p-3 sm:p-4 rounded-xl border border-border/50 overflow-x-auto">
                     {post.content}
                   </pre>
                 </div>
@@ -168,15 +168,15 @@ Good logging is an investment, not overhead.`,
           </div>
           
           {/* Carousel Outlines */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">LinkedIn Carousel Outlines</h2>
-            <div className="grid gap-6 md:grid-cols-2">
+          <div className="mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">LinkedIn Carousel Outlines</h2>
+            <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
               {carouselOutlines.map((carousel, index) => (
-                <div key={index} className="card-glass rounded-2xl p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">{carousel.title}</h3>
+                <div key={index} className="card-glass rounded-xl sm:rounded-2xl p-5 sm:p-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">{carousel.title}</h3>
                   <ol className="space-y-2">
                     {carousel.slides.map((slide, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground flex gap-2">
+                      <li key={idx} className="text-xs sm:text-sm text-muted-foreground flex gap-2">
                         <span className="text-cyan-400 font-mono">{idx + 1}.</span>
                         {slide}
                       </li>
@@ -188,13 +188,13 @@ Good logging is an investment, not overhead.`,
           </div>
           
           {/* FastAPI Tips */}
-          <div className="mb-16">
-            <h2 className="text-2xl font-bold text-foreground mb-6">FastAPI Short-Form Tips</h2>
-            <div className="card-glass rounded-2xl p-6">
-              <ul className="space-y-3">
+          <div className="mb-10 sm:mb-12 md:mb-16">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">FastAPI Short-Form Tips</h2>
+            <div className="card-glass rounded-xl sm:rounded-2xl p-5 sm:p-6">
+              <ul className="space-y-2 sm:space-y-3">
                 {fastApiTips.map((tip, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex gap-3">
-                    <span className="text-cyan-400">→</span>
+                  <li key={index} className="text-xs sm:text-sm text-muted-foreground flex gap-2 sm:gap-3">
+                    <span className="text-cyan-400 flex-shrink-0">→</span>
                     {tip}
                   </li>
                 ))}
@@ -204,12 +204,12 @@ Good logging is an investment, not overhead.`,
           
           {/* Python Data Tips */}
           <div>
-            <h2 className="text-2xl font-bold text-foreground mb-6">Python Data Short-Form Tips</h2>
-            <div className="card-glass rounded-2xl p-6">
-              <ul className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground mb-4 sm:mb-6">Python Data Short-Form Tips</h2>
+            <div className="card-glass rounded-xl sm:rounded-2xl p-5 sm:p-6">
+              <ul className="space-y-2 sm:space-y-3">
                 {pythonDataTips.map((tip, index) => (
-                  <li key={index} className="text-sm text-muted-foreground flex gap-3">
-                    <span className="text-emerald-400">→</span>
+                  <li key={index} className="text-xs sm:text-sm text-muted-foreground flex gap-2 sm:gap-3">
+                    <span className="text-emerald-400 flex-shrink-0">→</span>
                     {tip}
                   </li>
                 ))}

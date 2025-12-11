@@ -3,40 +3,40 @@ import { Link } from "react-router-dom";
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="container py-24 md:py-32">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+      <div className="container px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-28 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
             <div className="space-y-4">
               <p className="section-label">Engine Overview</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 <span className="gradient-text">SilentGPT Dev Engine</span>
-                <span className="block text-foreground mt-2">
+                <span className="block text-foreground mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
                   – curated content packs for real backend work.
                 </span>
               </h1>
             </div>
             
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
               An internal LLM engine that turns real FastAPI and Python data problems into structured, 
               markdown-native guides and packs – so you stop Googling the same issues every week.
             </p>
 
-            <div className="flex flex-wrap gap-4">
-              <Link to="/fastapi" className="btn-primary">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+              <Link to="/fastapi" className="btn-primary w-full sm:w-auto">
                 See FastAPI Backend Pack
               </Link>
-              <Link to="/python-data" className="btn-secondary">
+              <Link to="/python-data" className="btn-secondary w-full sm:w-auto">
                 See Python Data Engineering Pack
               </Link>
             </div>
 
-            <p className="text-sm text-muted-foreground/80 max-w-md">
+            <p className="text-sm text-muted-foreground/80 max-w-md mx-auto lg:mx-0">
               No random AI fluff. Only curated, markdown-native content focused on 
               debugging, performance and real production issues.
             </p>
           </div>
 
-          {/* Visual card mockup */}
+          {/* Visual card mockup - hidden on mobile/tablet, shown on desktop */}
           <div className="relative hidden lg:block">
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 blur-3xl rounded-full" />
             <div className="relative card-glass p-6 space-y-4 glow-box">

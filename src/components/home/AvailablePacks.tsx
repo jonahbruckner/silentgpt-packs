@@ -21,16 +21,16 @@ const packs = [
 
 export function AvailablePacks() {
   return (
-    <section className="py-24">
-      <div className="container">
-        <div className="text-center mb-16">
-          <p className="section-label mb-4">Products</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+    <section className="py-16 sm:py-20 md:py-24">
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <p className="section-label mb-3 sm:mb-4">Products</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Available packs
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           {packs.map((pack) => (
             <div
               key={pack.title}
@@ -39,25 +39,25 @@ export function AvailablePacks() {
               {/* Glow effect */}
               <div className={`absolute inset-0 bg-gradient-to-r ${pack.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500 rounded-3xl`} />
               
-              <div className="relative card-glass p-8 h-full flex flex-col glow-box">
-                <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${pack.gradient} mb-6`} />
+              <div className="relative card-glass p-6 sm:p-8 h-full flex flex-col glow-box">
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${pack.gradient} mb-4 sm:mb-6 flex-shrink-0`} />
                 
-                <h3 className="text-xl font-bold text-foreground mb-3">
+                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">
                   {pack.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-6 flex-1">
+                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 flex-1">
                   {pack.description}
                 </p>
 
                 <div className="space-y-4">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-2xl font-bold text-foreground">{pack.price}</span>
+                    <span className="text-xl sm:text-2xl font-bold text-foreground">{pack.price}</span>
                     <span className="text-sm text-muted-foreground">· one-time</span>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Link to={pack.href} className="btn-primary flex-1 text-center">
+                  <div className="flex flex-col gap-3">
+                    <Link to={pack.href} className="btn-primary text-center w-full">
                       View Pack Page
                     </Link>
                     <a

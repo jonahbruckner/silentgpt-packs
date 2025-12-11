@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -12,18 +13,23 @@ const navItems = [
 
 export function Navbar() {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500" />
-          <span className="text-lg font-semibold text-foreground">
+      <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Link to="/" className="flex items-center gap-2" onClick={closeMenu}>
+          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex-shrink-0" />
+          <span className="text-base sm:text-lg font-semibold text-foreground truncate">
             SilentGPT Dev Engine
           </span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -38,22 +44,72 @@ export function Navbar() {
           ))}
         </nav>
 
-        <a
-          href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary hidden sm:inline-flex"
-        >
-          Get the packs
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary hidden sm:inline-flex text-sm px-4 py-2.5"
+          >
+            Get the packs
+          </a>
 
-        {/* Mobile menu button */}
-        <button className="md:hidden p-2 text-muted-foreground hover:text-foreground">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+          {/* Mobile menu button */}
+          <button
+            onClick={toggleMenu}
+            className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 top-16 bg-background/95 backdrop-blur-xl lg:hidden z-40"
+          onClick={closeMenu}
+        >
+          <nav className="container px-4 py-6 flex flex-col gap-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                onClick={closeMenu}
+                className={cn(
+                  "px-4 py-3 text-base font-medium rounded-xl transition-colors",
+                  location.pathname === item.href
+                    ? "bg-primary/10 text-foreground"
+                    : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                )}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="mt-4 pt-4 border-t border-border/50">
+              <a
+                href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full text-center"
+                onClick={closeMenu}
+              >
+                Get the packs
+              </a>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

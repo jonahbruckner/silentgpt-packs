@@ -27,14 +27,14 @@ export function ShareBar({ title, url }: ShareBarProps) {
   };
 
   return (
-    <div className="flex items-center gap-4 py-6 border-t border-border/30">
+    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 py-6 border-t border-border/30 mt-8">
       <span className="text-sm text-muted-foreground">Share this:</span>
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 sm:gap-3">
         <a
           href={linkedInUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-lg bg-background/50 border border-border/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
+          className="p-2.5 sm:p-2 rounded-lg bg-background/50 border border-border/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
           aria-label="Share on LinkedIn"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -45,7 +45,7 @@ export function ShareBar({ title, url }: ShareBarProps) {
           href={twitterUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="p-2 rounded-lg bg-background/50 border border-border/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
+          className="p-2.5 sm:p-2 rounded-lg bg-background/50 border border-border/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
           aria-label="Share on X / Twitter"
         >
           <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ export function ShareBar({ title, url }: ShareBarProps) {
         </a>
         <button
           onClick={handleCopyLink}
-          className="p-2 rounded-lg bg-background/50 border border-border/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
+          className="p-2.5 sm:p-2 rounded-lg bg-background/50 border border-border/50 hover:border-cyan-500/50 hover:text-cyan-400 transition-all"
           aria-label="Copy link"
         >
           {copied ? (
