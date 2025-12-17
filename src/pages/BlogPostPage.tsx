@@ -2,11 +2,12 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/shared/SEO";
 import { ShareBar } from "@/components/shared/ShareBar";
-import { blogPosts } from "@/data/blogPosts";
+import { getPostBySlug } from "@/lib/blog";
+import ReactMarkdown from "react-markdown";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = blogPosts.find((p) => p.slug === slug);
+  const post = slug ? getPostBySlug(slug) : undefined;
   
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -35,7 +36,7 @@ const BlogPostPage = () => {
           
           <header className="mb-8 sm:mb-12">
             <time className="text-sm text-muted-foreground/60 block mb-3 sm:mb-4">
-              {new Date(post.publishDate).toLocaleDateString('en-US', {
+              {new Date(post.date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
@@ -59,8 +60,9 @@ const BlogPostPage = () => {
               prose-code:text-cyan-400 prose-code:bg-background/50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs sm:prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
               prose-pre:bg-background/50 prose-pre:border prose-pre:border-border/50 prose-pre:rounded-xl prose-pre:overflow-x-auto
               prose-ul:text-muted-foreground prose-li:text-muted-foreground"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
+          >
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </div>
           
           <ShareBar title={post.title} url={`/blog/${post.slug}`} />
           

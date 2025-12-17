@@ -77,7 +77,7 @@ export default function AGBPage() {
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-3">§ 5 Nutzungsrechte</h2>
               <p>
-                Mit dem Kauf erwirbt der Kunde ein <strong>einfaches, nicht-exklusives Nutzungsrecht</strong> 
+                Mit dem Kauf erwirbt der Kunde ein <strong>einfaches, nicht-exklusives Nutzungsrecht </strong> 
                 zur persönlichen Nutzung der erworbenen Inhalte.
               </p>
               <p className="mt-2">Das bedeutet:</p>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -13,10 +13,47 @@ const navItems = [
 
 export function Navbar() {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  // "open" controls the visual state (slide in/out).
+  // "mounted" controls whether the overlay exists in the DOM (so we can animate out).
+  const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  const openMenu = () => {
+    setMounted(true);
+    // next frame to ensure transition applies
+    requestAnimationFrame(() => setOpen(true));
+  };
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
+  const toggleMenu = () => {
+    if (open || mounted) closeMenu();
+    else openMenu();
+  };
+
+  // Unmount after the slide-out animation finishes
+  useEffect(() => {
+    if (!mounted) return;
+    if (open) return;
+
+    const t = window.setTimeout(() => setMounted(false), 240);
+    return () => window.clearTimeout(t);
+  }, [open, mounted]);
+
+  // Scroll lock while mounted (menu open/closing)
+  useEffect(() => {
+    document.documentElement.classList.toggle("overflow-hidden", mounted);
+    return () => document.documentElement.classList.remove("overflow-hidden");
+  }, [mounted]);
+
+  // Close on route change (safe UX)
+  useEffect(() => {
+    if (mounted) closeMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
@@ -34,10 +71,7 @@ export function Navbar() {
             <Link
               key={item.href}
               to={item.href}
-              className={cn(
-                "nav-link",
-                location.pathname === item.href && "active"
-              )}
+              className={cn("nav-link", location.pathname === item.href && "active")}
             >
               {item.label}
             </Link>
@@ -59,9 +93,9 @@ export function Navbar() {
             onClick={toggleMenu}
             className="lg:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
             aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
+            aria-expanded={open}
           >
-            {isMenuOpen ? (
+            {open ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -74,13 +108,30 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu overlay */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 top-16 bg-background/95 backdrop-blur-xl lg:hidden z-40"
-          onClick={closeMenu}
-        >
-          <nav className="container px-4 py-6 flex flex-col gap-2">
+      {/* Mobile menu overlay (Backdrop + Sliding Panel) */}
+      {mounted && (
+        <div className="fixed inset-0 z-[60] lg:hidden">
+          {/* Backdrop */}
+          <button
+            aria-label="Close menu"
+            onClick={closeMenu}
+            className={cn(
+              "absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-200",
+              open ? "opacity-100" : "opacity-0"
+            )}
+          />
+
+          {/* Panel */}
+          <nav
+            className={cn(
+              "absolute right-0 top-0 h-full w-[82%] max-w-sm",
+              "bg-background/95 backdrop-blur-xl border-l border-border/50 shadow-2xl",
+              "px-6 py-6 flex flex-col gap-2",
+              "transform transition-transform duration-200 ease-out will-change-transform",
+              open ? "translate-x-0" : "translate-x-full"
+            )}
+            onClick={(e) => e.stopPropagation()}
+          >
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -96,6 +147,7 @@ export function Navbar() {
                 {item.label}
               </Link>
             ))}
+
             <div className="mt-4 pt-4 border-t border-border/50">
               <a
                 href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"

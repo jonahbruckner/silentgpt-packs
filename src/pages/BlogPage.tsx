@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/shared/SEO";
-import { blogPosts } from "@/data/blogPosts";
+import { getAllPosts } from "@/lib/blog";
 
 const BlogPage = () => {
+  const posts = getAllPosts();
+  
   return (
     <Layout>
       <SEO 
@@ -26,7 +28,7 @@ const BlogPage = () => {
           </div>
           
           <div className="space-y-4 sm:space-y-6">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
@@ -41,7 +43,7 @@ const BlogPage = () => {
                       {post.excerpt}
                     </p>
                     <time className="text-xs text-muted-foreground/60">
-                      {new Date(post.publishDate).toLocaleDateString('en-US', {
+                      {new Date(post.date).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric'

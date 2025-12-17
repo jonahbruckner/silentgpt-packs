@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { blogPosts } from "@/data/blogPosts";
+import { getAllPosts } from "@/lib/blog";
 
 export function FeaturedArticles() {
-  const featured = blogPosts.slice(0, 3);
+  const featured = getAllPosts().slice(0, 3);
 
   return (
     <section className="py-14 sm:py-20 md:py-28 border-t border-border/30">
@@ -31,7 +31,7 @@ export function FeaturedArticles() {
                 {post.excerpt}
               </p>
               <span className="text-xs text-muted-foreground/60">
-                {new Date(post.publishDate).toLocaleDateString('en-US', {
+                {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'short',
                   day: 'numeric'
