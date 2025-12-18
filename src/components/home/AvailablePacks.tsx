@@ -61,18 +61,18 @@ function PythonDataMark() {
 
 export function AvailablePacks() {
   return (
-    <section className="py-20 sm:py-24">
+    <section className="py-20 sm:py-28 md:py-32 border-t border-border/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="section-label text-cyan-400 mb-4 block">PRODUCTS</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+        <div className="text-center mb-14 sm:mb-16 md:mb-20 animate-fade-up">
+          <span className="section-label mb-4 block">PRODUCTS</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             Available packs
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 max-w-5xl mx-auto">
           {/* FastAPI */}
-          <div className="card-glass rounded-3xl p-7 sm:p-8 border border-border/40">
+          <div className="card-glass rounded-3xl p-7 sm:p-8 border border-border/40 opacity-0 animate-fade-up" style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}>
             <div className="flex items-start gap-4 mb-6">
               <FastAPIMark />
               <div>
@@ -111,7 +111,7 @@ export function AvailablePacks() {
           </div>
 
           {/* Python Data */}
-          <div className="card-glass rounded-3xl p-7 sm:p-8 border border-border/40">
+          <div className="card-glass rounded-3xl p-7 sm:p-8 border border-border/40 opacity-0 animate-fade-up" style={{ animationDelay: '0.25s', animationFillMode: 'forwards' }}>
             <div className="flex items-start gap-4 mb-6">
               <PythonDataMark />
               <div>

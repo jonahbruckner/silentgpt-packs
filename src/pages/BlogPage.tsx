@@ -5,6 +5,7 @@ import { SEO } from "@/components/shared/SEO";
 import { getAllPosts, type BlogPost } from "@/lib/blog";
 
 type Filter = "all" | "fastapi" | "python-data";
+type SortOrder = "newest" | "oldest";
 
 function formatPublishedDate(published_at?: string) {
   if (!published_at) return null;
@@ -20,6 +21,7 @@ function formatPublishedDate(published_at?: string) {
 
 const BlogPage = () => {
   const [filter, setFilter] = useState<Filter>("all");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("newest");
 
   const allPosts = useMemo(() => getAllPosts(), []);
   const fastapiCount = useMemo(
@@ -32,9 +34,17 @@ const BlogPage = () => {
   );
 
   const visiblePosts = useMemo(() => {
-    if (filter === "all") return allPosts;
-    return allPosts.filter((p) => p.topic === filter);
-  }, [allPosts, filter]);
+    const filtered = filter === "all" ? allPosts : allPosts.filter((p) => p.topic === filter);
+    
+    return [...filtered].sort((a, b) => {
+      const dateA = a.published_at ? Date.parse(a.published_at) : 0;
+      const dateB = b.published_at ? Date.parse(b.published_at) : 0;
+      const comparison = dateB - dateA; // Newest first by default
+      if (comparison !== 0) return sortOrder === "newest" ? comparison : -comparison;
+      // Stable sort fallback: use slug
+      return a.slug.localeCompare(b.slug);
+    });
+  }, [allPosts, filter, sortOrder]);
 
   const filterButtonClass = (active: boolean) =>
     [
@@ -105,8 +115,32 @@ const BlogPage = () => {
               </button>
             </div>
 
-            <div className="hidden text-sm text-white/50 md:block">
-              Showing <span className="text-white/80">{visiblePosts.length}</span> posts
+            <div className="flex items-center gap-4">
+              <button
+                type="button"
+                onClick={() => setSortOrder(sortOrder === "newest" ? "oldest" : "newest")}
+                className="flex items-center gap-1.5 text-sm text-white/50 transition hover:text-white/80"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  className={sortOrder === "oldest" ? "rotate-180" : ""}
+                >
+                  <path
+                    d="M12 5v14M5 12l7-7 7 7"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                {sortOrder === "newest" ? "Newest" : "Oldest"}
+              </button>
+              <span className="hidden text-sm text-white/50 md:block">
+                · {visiblePosts.length} posts
+              </span>
             </div>
           </div>
 

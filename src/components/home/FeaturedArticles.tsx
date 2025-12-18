@@ -5,19 +5,19 @@ export function FeaturedArticles() {
   const featured = getAllPosts().slice(0, 3);
 
   return (
-    <section className="py-14 sm:py-20 md:py-28 border-t border-border/30">
+    <section className="py-20 sm:py-24 md:py-32 border-t border-border/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12">
-          <span className="section-label text-cyan-400 mb-3 sm:mb-4 block">From the Blog</span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+        <div className="text-center mb-12 sm:mb-16 animate-fade-up">
+          <span className="section-label mb-4 block">From the Blog</span>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
             Featured Articles
           </h2>
-          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Deep dives into debugging, performance, and architecture patterns.
           </p>
         </div>
         
-        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-3 mb-6 sm:mb-8">
+        <div className="grid gap-5 sm:gap-6 grid-cols-1 md:grid-cols-3 mb-8 sm:mb-10">
           {featured.map((post) => (
             <Link
               key={post.slug}

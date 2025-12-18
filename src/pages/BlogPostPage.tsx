@@ -348,11 +348,12 @@ const BlogPostPage = () => {
                             </blockquote>
                           ),
                           hr: () => <div className="my-10 h-px bg-gradient-to-r from-transparent via-border/70 to-transparent" />,
-                          code: ({ inline, className, children, ...props }) => {
+                          code: ({ className, children, ...props }) => {
                             const match = /language-(\w+)/.exec(className || "");
                             const language = match?.[1] ?? "";
+                            const isInline = !match;
 
-                            if (inline) {
+                            if (isInline) {
                               return (
                                 <code className="text-cyan-200 bg-background/50 border border-border/40 px-1.5 py-0.5 rounded" {...props}>
                                   {children}

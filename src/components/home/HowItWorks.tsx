@@ -43,20 +43,21 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-radial-bottom">
+    <section className="py-20 sm:py-24 md:py-32 bg-radial-bottom border-t border-border/30">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <p className="section-label mb-3 sm:mb-4">Process</p>
+        <div className="text-center mb-12 sm:mb-16 md:mb-20 animate-fade-up">
+          <p className="section-label mb-4">Process</p>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
             How the engine works
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {steps.map((step, index) => (
             <div
               key={step.number}
-              className="relative card-glass p-5 sm:p-6 group hover:border-primary/30 transition-colors duration-300"
+              className="relative card-glass p-5 sm:p-6 group hover:border-primary/30 transition-colors duration-300 opacity-0 animate-fade-up"
+              style={{ animationDelay: `${0.1 + index * 0.1}s`, animationFillMode: 'forwards' }}
             >
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-border to-transparent" />

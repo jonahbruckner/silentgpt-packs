@@ -6,7 +6,6 @@ import { ValueProposition } from "@/components/pack/ValueProposition";
 import { FAQ } from "@/components/pack/FAQ";
 
 const GUMROAD_PYDATA = "https://silentgpt.gumroad.com/l/python-data-engineering-pack-1";
-const HUGO_PYDATA_ARTICLES = "https://silentgpt-dev-engine.netlify.app/python-data/articles/";
 
 const PRICE_NET = "20 €";
 const VAT_HINT_SHORT = "Excl. VAT · VAT calculated automatically at checkout";
@@ -80,7 +79,7 @@ const PythonDataPage = () => {
         }}
         secondaryCta={{
           label: "Preview Free Python Data Engineering Articles",
-          href: HUGO_PYDATA_ARTICLES,
+          href: "/blog?topic=python-data",
         }}
         gradient="from-emerald-500 to-teal-500"
       />
@@ -107,7 +106,7 @@ const PythonDataPage = () => {
         }}
         secondaryCta={{
           label: "Browse free articles",
-          href: HUGO_PYDATA_ARTICLES,
+          href: "/blog?topic=python-data",
         }}
         prePurchase={{
           title: "Python Data Engineering Pack #1",
@@ -123,14 +122,9 @@ const PythonDataPage = () => {
             "You only do tiny notebook demos and don’t care about reliability or logging.",
             "You expect a theory-heavy textbook instead of applied recipes.",
           ],
-          footerNote: VAT_HINT_LONG as any,
         }}
       />
 
-      {/* VAT hint for Pricing section (in case PricingCard does not render footerNote) */}
-      <div className="container px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10">
-        <p className="text-xs text-muted-foreground">{VAT_HINT_SHORT}</p>
-      </div>
 
       <WhatsInside items={whatsInsideItems} />
 

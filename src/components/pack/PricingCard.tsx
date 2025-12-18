@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PrePurchaseDialog } from "@/components/pack/PrePurchaseDialog";
 
 interface PricingCardProps {
@@ -33,6 +34,10 @@ function isGumroadUrl(url: string) {
   } catch {
     return url.includes("gumroad.com");
   }
+}
+
+function isInternalUrl(url: string) {
+  return url.startsWith("/");
 }
 
 export function PricingCard({
@@ -145,6 +150,13 @@ export function PricingCard({
                       {secondaryCta.label}
                     </button>
                   </PrePurchaseDialog>
+                ) : isInternalUrl(secondaryCta.href) ? (
+                  <Link
+                    to={secondaryCta.href}
+                    className="btn-secondary text-center w-full"
+                  >
+                    {secondaryCta.label}
+                  </Link>
                 ) : (
                   <a
                     href={secondaryCta.href}

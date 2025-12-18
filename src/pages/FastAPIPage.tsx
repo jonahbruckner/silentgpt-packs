@@ -6,7 +6,6 @@ import { ValueProposition } from "@/components/pack/ValueProposition";
 import { FAQ } from "@/components/pack/FAQ";
 
 const GUMROAD_FASTAPI = "https://silentgpt.gumroad.com/l/fastapi-backend-pack-1";
-const HUGO_FASTAPI_ARTICLES = "https://silentgpt-dev-engine.netlify.app/fastapi/articles/";
 
 const PRICE_NET = "20 €";
 const VAT_HINT_SHORT = "Excl. VAT · VAT calculated automatically at checkout";
@@ -83,7 +82,7 @@ const FastAPIPage = () => {
         }}
         secondaryCta={{
           label: "Preview Free FastAPI Articles",
-          href: HUGO_FASTAPI_ARTICLES,
+          href: "/blog?topic=fastapi",
         }}
         gradient="from-cyan-500 to-blue-500"
       />
@@ -110,7 +109,7 @@ const FastAPIPage = () => {
         }}
         secondaryCta={{
           label: "Browse free articles",
-          href: HUGO_FASTAPI_ARTICLES,
+          href: "/blog?topic=fastapi",
         }}
         prePurchase={{
           title: "FastAPI Backend Pack #1",
@@ -127,15 +126,9 @@ const FastAPIPage = () => {
             "You expect a video course instead of Markdown playbooks.",
             "You prefer trial-and-error over structured troubleshooting and logs.",
           ],
-          // Footer note inside the modal (if your component supports it)
-          footerNote: VAT_HINT_LONG as any,
         }}
       />
 
-      {/* VAT hint for Pricing section (in case PricingCard does not render footerNote) */}
-      <div className="container px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10">
-        <p className="text-xs text-muted-foreground">{VAT_HINT_SHORT}</p>
-      </div>
 
       <WhatsInside items={whatsInsideItems} />
 

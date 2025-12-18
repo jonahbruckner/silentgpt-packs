@@ -1,12 +1,21 @@
-import { useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/shared/SEO";
 import { getAllPosts, BlogTopic } from "@/lib/blog";
 import { cn } from "@/lib/utils";
 
 const BlogPage = () => {
+  const [searchParams] = useSearchParams();
   const [filter, setFilter] = useState<"all" | BlogTopic>("all");
+
+  // Read topic from URL on mount
+  useEffect(() => {
+    const topic = searchParams.get("topic");
+    if (topic === "fastapi" || topic === "python-data") {
+      setFilter(topic);
+    }
+  }, [searchParams]);
 
   const posts = useMemo(() => getAllPosts(), []);
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PrePurchaseDialog } from "@/components/pack/PrePurchaseDialog";
 
 interface PackHeroProps {
@@ -26,6 +27,10 @@ function isGumroadUrl(url: string) {
   }
 }
 
+function isInternalUrl(url: string) {
+  return url.startsWith("/");
+}
+
 // Generic fallback (so the dialog ALWAYS opens for Gumroad even if prePurchase was forgotten)
 function fallbackPrePurchase(kicker: string) {
   return {
@@ -45,6 +50,15 @@ function fallbackPrePurchase(kicker: string) {
   };
 }
 
+// Parse CTA label to separate name and price for better mobile layout
+function parseCtaLabel(label: string) {
+  const parts = label.split(" · ");
+  if (parts.length === 2) {
+    return { name: parts[0], price: parts[1] };
+  }
+  return { name: label, price: null };
+}
+
 export function PackHero({
   kicker,
   headline,
@@ -61,6 +75,25 @@ export function PackHero({
     prePurchase?.whoFor?.length && prePurchase?.whoNotFor?.length
       ? prePurchase
       : fallbackPrePurchase(kicker);
+
+  const parsedPrimaryCta = parseCtaLabel(primaryCta.label);
+
+  // Button content with mobile-optimized layout
+  const PrimaryButtonContent = () => (
+    <>
+      {/* Desktop: single line with separator */}
+      <span className="hidden sm:inline whitespace-nowrap">
+        {primaryCta.label}
+      </span>
+      {/* Mobile: stacked layout */}
+      <span className="flex sm:hidden flex-col items-center justify-center gap-0.5">
+        <span className="text-center leading-tight">{parsedPrimaryCta.name}</span>
+        {parsedPrimaryCta.price && (
+          <span className="text-xs opacity-90">{parsedPrimaryCta.price}</span>
+        )}
+      </span>
+    </>
+  );
 
   return (
     <section className="relative pt-24 pb-16 overflow-hidden">
@@ -92,8 +125,8 @@ export function PackHero({
                 whoFor={dialogData.whoFor}
                 whoNotFor={dialogData.whoNotFor}
               >
-                <button type="button" className="btn-primary px-8 py-4 text-lg">
-                  {primaryCta.label}
+                <button type="button" className="btn-primary px-6 sm:px-8 py-4 text-base sm:text-lg h-auto min-h-[3.5rem]">
+                  <PrimaryButtonContent />
                 </button>
               </PrePurchaseDialog>
             ) : (
@@ -101,9 +134,9 @@ export function PackHero({
                 href={primaryCta.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-primary px-8 py-4 text-lg"
+                className="btn-primary px-6 sm:px-8 py-4 text-base sm:text-lg h-auto min-h-[3.5rem]"
               >
-                {primaryCta.label}
+                <PrimaryButtonContent />
               </a>
             )}
 
@@ -121,6 +154,13 @@ export function PackHero({
                   {secondaryCta.label}
                 </button>
               </PrePurchaseDialog>
+            ) : isInternalUrl(secondaryCta.href) ? (
+              <Link
+                to={secondaryCta.href}
+                className="btn-secondary px-8 py-4 text-lg"
+              >
+                {secondaryCta.label}
+              </Link>
             ) : (
               <a
                 href={secondaryCta.href}

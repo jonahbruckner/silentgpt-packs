@@ -3,25 +3,39 @@ import { Link } from "react-router-dom";
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="container px-4 sm:px-6 lg:px-8 py-16 sm:py-20 md:py-28 lg:py-32">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-            <div className="space-y-4">
-              <p className="section-label">Engine Overview</p>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+      <div className="container px-4 sm:px-6 lg:px-8 py-20 sm:py-24 md:py-32 lg:py-40">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="space-y-8 sm:space-y-10 text-center lg:text-left animate-fade-up">
+            <div className="space-y-5">
+              <p
+                className="section-label opacity-0 animate-fade-up"
+                style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
+              >
+                Engine Overview
+              </p>
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight opacity-0 animate-fade-up"
+                style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
+              >
                 <span className="gradient-text">SilentGPT Dev Engine</span>
-                <span className="block text-foreground mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
+                <span className="block text-foreground mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug">
                   – curated content packs for real backend work.
                 </span>
               </h1>
             </div>
-            
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              An internal LLM engine that turns real FastAPI and Python data problems into structured, 
-              markdown-native guides and packs – so you stop Googling the same issues every week.
+
+            <p
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-lg mx-auto lg:mx-0 leading-relaxed opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
+            >
+              An internal LLM engine that turns real FastAPI and Python data problems into structured, markdown-native
+              guides and packs – so you stop Googling the same issues every week.
             </p>
 
-            <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
+            <div
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2 opacity-0 animate-fade-up"
+              style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
+            >
               <Link to="/fastapi" className="btn-primary w-full sm:w-auto">
                 See FastAPI Backend Pack
               </Link>
@@ -30,9 +44,9 @@ export function Hero() {
               </Link>
             </div>
 
-            <p className="text-sm text-muted-foreground/80 max-w-md mx-auto lg:mx-0">
-              No random AI fluff. Only curated, markdown-native content focused on 
-              debugging, performance and real production issues.
+            <p className="text-sm text-muted-foreground/70 max-w-md mx-auto lg:mx-0">
+              No random AI fluff. Only curated, markdown-native content focused on debugging, performance and real
+              production issues.
             </p>
           </div>
 
@@ -48,7 +62,11 @@ export function Hero() {
                   </span>
                 </div>
                 <div className="space-y-2 pl-4">
-                  {["How to fix 500 errors in FastAPI?", "SQLModel async session patterns", "pandas chunked CSV processing"].map((q, i) => (
+                  {[
+                    "How to fix 500 errors in FastAPI?",
+                    "SQLModel async session patterns",
+                    "pandas chunked CSV processing",
+                  ].map((q, i) => (
                     <div key={i} className="text-sm text-foreground/80 font-mono bg-muted/30 px-3 py-2 rounded-lg">
                       {q}
                     </div>
@@ -72,7 +90,7 @@ export function Hero() {
                 <div className="bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 border border-border/50 rounded-xl p-4">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-foreground">FastAPI Backend Pack #1</span>
-                    <span className="text-sm text-emerald-400 font-mono">29 €</span>
+                    <span className="text-sm text-emerald-400 font-mono">20 €</span>
                   </div>
                 </div>
               </div>
