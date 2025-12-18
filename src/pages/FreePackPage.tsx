@@ -67,8 +67,13 @@ const FreePackPage = () => {
               to="/fastapi"
               className="btn-primary inline-flex items-center justify-center"
             >
-              View FastAPI Backend Pack #1
+              View FastAPI Backend Pack #1 *
             </Link>
+          </div>
+          <div className="text-center">
+            <p className="text-xs text-muted-foreground mt-4">
+              * Paid packs start at €20 excl. VAT. VAT is calculated at checkout by Gumroad.
+            </p>
           </div>
         </div>
       </section>

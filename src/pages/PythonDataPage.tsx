@@ -8,6 +8,11 @@ import { FAQ } from "@/components/pack/FAQ";
 const GUMROAD_PYDATA = "https://silentgpt.gumroad.com/l/python-data-engineering-pack-1";
 const HUGO_PYDATA_ARTICLES = "https://silentgpt-dev-engine.netlify.app/python-data/articles/";
 
+const PRICE_NET = "20 €";
+const VAT_HINT_SHORT = "Excl. VAT · VAT calculated automatically at checkout";
+const VAT_HINT_LONG =
+  "VAT is calculated automatically by Gumroad at checkout based on your location.";
+
 const whatsInsideItems = [
   {
     title: "Performance Blueprint",
@@ -70,7 +75,7 @@ const PythonDataPage = () => {
         headline="Turn slow, fragile data scripts into solid pipelines."
         subheadline="A performance & reliability playbook for pandas-based workflows – built around a performance blueprint plus focused articles on chunking, memory, cleaning and ETL structure."
         primaryCta={{
-          label: "Get Python Data Engineering Package #1 · 29 €",
+          label: `Get Python Data Engineering Pack #1 · ${PRICE_NET}*`,
           href: GUMROAD_PYDATA,
         }}
         secondaryCta={{
@@ -80,10 +85,15 @@ const PythonDataPage = () => {
         gradient="from-emerald-500 to-teal-500"
       />
 
+      {/* VAT hint for Hero CTA */}
+      <div className="container px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-12">
+        <p className="text-xs text-muted-foreground">{`* ${VAT_HINT_SHORT}`}</p>
+      </div>
+
       <PricingCard
         badge="Performance & Reliability Playbook"
         title="What you get:"
-        price="29 €"
+        price={PRICE_NET}
         benefits={[
           "Python Data Performance Blueprint to identify CPU, I/O and memory bottlenecks.",
           "Chunked CSV-processing patterns for datasets that don't fit into RAM.",
@@ -113,9 +123,14 @@ const PythonDataPage = () => {
             "You only do tiny notebook demos and don’t care about reliability or logging.",
             "You expect a theory-heavy textbook instead of applied recipes.",
           ],
+          footerNote: VAT_HINT_LONG as any,
         }}
-
       />
+
+      {/* VAT hint for Pricing section (in case PricingCard does not render footerNote) */}
+      <div className="container px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10">
+        <p className="text-xs text-muted-foreground">{VAT_HINT_SHORT}</p>
+      </div>
 
       <WhatsInside items={whatsInsideItems} />
 

@@ -8,6 +8,10 @@ import { FAQ } from "@/components/pack/FAQ";
 const GUMROAD_FASTAPI = "https://silentgpt.gumroad.com/l/fastapi-backend-pack-1";
 const HUGO_FASTAPI_ARTICLES = "https://silentgpt-dev-engine.netlify.app/fastapi/articles/";
 
+const PRICE_NET = "20 €";
+const VAT_HINT_SHORT = "Excl. VAT · VAT calculated automatically at checkout";
+const VAT_HINT_LONG =  "VAT is calculated automatically by Gumroad at checkout based on your location.";
+
 const whatsInsideItems = [
   {
     title: "Debugging Blueprint",
@@ -38,7 +42,7 @@ const whoIsThisFor = [
 ];
 
 const whyItsWorthIt = [
-  "One fixed session leak or async deadlock can save you more than 29 € in a single evening.",
+  `One fixed session leak or async deadlock can save you more than ${PRICE_NET} in a single evening.`,
   "The patterns are reusable across multiple projects and clients.",
   "You are building your own, growing troubleshooting system – not buying a one-off blog post.",
 ];
@@ -74,7 +78,7 @@ const FastAPIPage = () => {
         headline="Stop debugging FastAPI by guessing."
         subheadline="A debugging & architecture playbook for real FastAPI backends – built around a full debugging blueprint plus 10+ focused recipes for SQLModel, async, logging and project structure."
         primaryCta={{
-          label: "Get FastAPI Backend Pack #1 · 29 €",
+          label: `Get FastAPI Backend Pack #1 · ${PRICE_NET}*`,
           href: GUMROAD_FASTAPI,
         }}
         secondaryCta={{
@@ -84,10 +88,15 @@ const FastAPIPage = () => {
         gradient="from-cyan-500 to-blue-500"
       />
 
+      {/* VAT hint for Hero CTA */}
+      <div className="container px-4 sm:px-6 lg:px-8 -mt-10 sm:-mt-12">
+        <p className="text-xs text-muted-foreground">{`* ${VAT_HINT_SHORT}`}</p>
+      </div>
+
       <PricingCard
         badge="Debugging & Architecture Playbook"
         title="What you get:"
-        price="29 €"
+        price={PRICE_NET}
         benefits={[
           "Includes the full FastAPI Debugging Blueprint as the core guide.",
           "SQLModel session patterns (sync & async) that prevent leaks and random crashes.",
@@ -103,27 +112,37 @@ const FastAPIPage = () => {
           label: "Browse free articles",
           href: HUGO_FASTAPI_ARTICLES,
         }}
-      prePurchase={{
-        title: "FastAPI Backend Pack #1",
-        headline: "Make sure the FastAPI pack is a fit.",
-        intro: "Production-focused debugging and architecture patterns. Quick fit-check before you buy.",
-        whoFor: [
-          "You deploy FastAPI to production and need a repeatable debugging process.",
-          "You’re fighting 500s, import/config issues, and SQLModel/async edge cases.",
-          "You want patterns you can reuse across client projects and internal APIs.",
-        ],
-        whoNotFor: [
-          "You want a beginner FastAPI tutorial from scratch.",
-          "You expect a video course instead of Markdown playbooks.",
-          "You prefer trial-and-error over structured troubleshooting and logs.",
-        ],
-      }}
-
+        prePurchase={{
+          title: "FastAPI Backend Pack #1",
+          headline: "Make sure the FastAPI pack is a fit.",
+          intro:
+            "Production-focused debugging and architecture patterns. Quick fit-check before you buy.",
+          whoFor: [
+            "You deploy FastAPI to production and need a repeatable debugging process.",
+            "You’re fighting 500s, import/config issues, and SQLModel/async edge cases.",
+            "You want patterns you can reuse across client projects and internal APIs.",
+          ],
+          whoNotFor: [
+            "You want a beginner FastAPI tutorial from scratch.",
+            "You expect a video course instead of Markdown playbooks.",
+            "You prefer trial-and-error over structured troubleshooting and logs.",
+          ],
+          // Footer note inside the modal (if your component supports it)
+          footerNote: VAT_HINT_LONG as any,
+        }}
       />
+
+      {/* VAT hint for Pricing section (in case PricingCard does not render footerNote) */}
+      <div className="container px-4 sm:px-6 lg:px-8 -mt-8 sm:-mt-10">
+        <p className="text-xs text-muted-foreground">{VAT_HINT_SHORT}</p>
+      </div>
 
       <WhatsInside items={whatsInsideItems} />
 
-      <ValueProposition whoIsThisFor={whoIsThisFor} whyItsWorthIt={whyItsWorthIt} />
+      <ValueProposition
+        whoIsThisFor={whoIsThisFor}
+        whyItsWorthIt={whyItsWorthIt}
+      />
 
       <FAQ items={faqItems} />
     </Layout>

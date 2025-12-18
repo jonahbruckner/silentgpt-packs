@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 
+const PRICE_NET = "20 €";
+const VAT_HINT = "Excl. VAT · VAT calculated automatically at checkout";
+
 function FastAPIMark() {
   // "Lightning / API engine" feel
   return (
@@ -83,9 +86,12 @@ export function AvailablePacks() {
               </div>
             </div>
 
-            <div className="flex items-baseline gap-2 mb-6">
-              <span className="text-2xl font-bold text-foreground">29 €</span>
-              <span className="text-sm text-muted-foreground">· one-time</span>
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-bold text-foreground">{PRICE_NET}</span>
+                <span className="text-sm text-muted-foreground">· one-time</span>
+              </div>
+              <p className="mt-1 text-xs text-muted-foreground">{VAT_HINT}</p>
             </div>
 
             <div className="flex flex-col gap-3">
@@ -119,9 +125,12 @@ export function AvailablePacks() {
               </div>
             </div>
 
-            <div className="flex items-baseline gap-2 mb-6">
-              <span className="text-2xl font-bold text-foreground">29 €</span>
-              <span className="text-sm text-muted-foreground">· one-time</span>
+            <div className="mb-6">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl font-bold text-foreground">{PRICE_NET}</span>
+                <span className="text-sm text-muted-foreground">· one-time</span>
+              </div>
+              <p className="mt-1 text-xs text-muted-foreground">{VAT_HINT}</p>
             </div>
 
             <div className="flex flex-col gap-3">

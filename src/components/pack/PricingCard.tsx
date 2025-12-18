@@ -3,7 +3,16 @@ import { PrePurchaseDialog } from "@/components/pack/PrePurchaseDialog";
 interface PricingCardProps {
   badge: string;
   title: string;
+
+  // Example: "€20"
   price: string;
+
+  // Example: "excl. VAT"
+  priceNote?: string;
+
+  // Example: "VAT is calculated and added at checkout by Gumroad based on your location."
+  footerNote?: string;
+
   benefits: string[];
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
@@ -30,6 +39,8 @@ export function PricingCard({
   badge,
   title,
   price,
+  priceNote,
+  footerNote,
   benefits,
   primaryCta,
   secondaryCta,
@@ -57,11 +68,14 @@ export function PricingCard({
                 {title}
               </h2>
 
-              <div className="flex items-baseline gap-2 mb-4 sm:mb-6">
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 mb-4 sm:mb-6">
                 <span className="text-3xl sm:text-4xl font-bold gradient-text">
                   {price}
                 </span>
                 <span className="text-muted-foreground">· one-time</span>
+                {priceNote ? (
+                  <span className="text-muted-foreground">· {priceNote}</span>
+                ) : null}
               </div>
 
               <p className="text-sm text-muted-foreground mb-4 sm:mb-6">
@@ -141,6 +155,13 @@ export function PricingCard({
                     {secondaryCta.label}
                   </a>
                 )}
+
+                {/* VAT / checkout disclaimer */}
+                {footerNote ? (
+                  <p className="mt-2 text-[11px] leading-snug text-muted-foreground">
+                    {footerNote}
+                  </p>
+                ) : null}
               </div>
             </div>
           </div>
