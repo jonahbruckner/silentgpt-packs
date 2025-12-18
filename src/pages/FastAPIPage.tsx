@@ -11,19 +11,23 @@ const HUGO_FASTAPI_ARTICLES = "https://silentgpt-dev-engine.netlify.app/fastapi/
 const whatsInsideItems = [
   {
     title: "Debugging Blueprint",
-    description: "A step-by-step guide for analyzing 500s, tracing import/DI issues and separating environment from code problems.",
+    description:
+      "A step-by-step guide for analyzing 500s, tracing import/DI issues and separating environment from code problems.",
   },
   {
     title: "Recipes & Playbooks",
-    description: "Short, focused articles for recurring issues in SQLModel, async background tasks and dependency injection.",
+    description:
+      "Short, focused articles for recurring issues in SQLModel, async background tasks and dependency injection.",
   },
   {
     title: "Architecture Notes",
-    description: "How to structure routers, services and repositories so your project stays maintainable.",
+    description:
+      "How to structure routers, services and repositories so your project stays maintainable.",
   },
   {
     title: "Production Focus",
-    description: "Patterns assume real deployments: Docker, Render, logging, unstable environments – not just toy examples.",
+    description:
+      "Patterns assume real deployments: Docker, Render, logging, unstable environments – not just toy examples.",
   },
 ];
 
@@ -42,19 +46,23 @@ const whyItsWorthIt = [
 const faqItems = [
   {
     question: "Is this just raw AI-generated content?",
-    answer: "No. The engine uses LLMs to draft content, but drafts are scored, filtered and structured into a coherent playbook. Low-quality pieces are discarded. The goal is to capture patterns that actually work in real FastAPI backends.",
+    answer:
+      "No. The engine uses LLMs to draft content, but drafts are scored, filtered and structured into a coherent playbook. Low-quality pieces are discarded. The goal is to capture patterns that actually work in real FastAPI backends.",
   },
   {
     question: "In which format do I get the content?",
-    answer: "You get pure Markdown files. That makes it easy to use them in Git, Obsidian, Notion or your own internal documentation.",
+    answer:
+      "You get pure Markdown files. That makes it easy to use them in Git, Obsidian, Notion or your own internal documentation.",
   },
   {
     question: "Do I get updates?",
-    answer: "Yes. When the engine produces new high-quality FastAPI articles, they're added to the pack. You get lifetime access to updates.",
+    answer:
+      "Yes. When the engine produces new high-quality FastAPI articles, they're added to the pack. You get lifetime access to updates.",
   },
   {
     question: "Is this suitable for beginners?",
-    answer: "Yes. When the engine produces new, high-quality FastAPI articles that fit this pack, the pack is updated and you can download the new version from Gumroad at no extra cost.",
+    answer:
+      "If you are already building APIs and want a practical debugging system, yes. If you want a from-scratch beginner course, no.",
   },
 ];
 
@@ -95,14 +103,27 @@ const FastAPIPage = () => {
           label: "Browse free articles",
           href: HUGO_FASTAPI_ARTICLES,
         }}
+      prePurchase={{
+        title: "FastAPI Backend Pack #1",
+        headline: "Make sure the FastAPI pack is a fit.",
+        intro: "Production-focused debugging and architecture patterns. Quick fit-check before you buy.",
+        whoFor: [
+          "You deploy FastAPI to production and need a repeatable debugging process.",
+          "You’re fighting 500s, import/config issues, and SQLModel/async edge cases.",
+          "You want patterns you can reuse across client projects and internal APIs.",
+        ],
+        whoNotFor: [
+          "You want a beginner FastAPI tutorial from scratch.",
+          "You expect a video course instead of Markdown playbooks.",
+          "You prefer trial-and-error over structured troubleshooting and logs.",
+        ],
+      }}
+
       />
 
       <WhatsInside items={whatsInsideItems} />
 
-      <ValueProposition
-        whoIsThisFor={whoIsThisFor}
-        whyItsWorthIt={whyItsWorthIt}
-      />
+      <ValueProposition whoIsThisFor={whoIsThisFor} whyItsWorthIt={whyItsWorthIt} />
 
       <FAQ items={faqItems} />
     </Layout>

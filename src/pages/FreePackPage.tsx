@@ -1,5 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
 import { SEO } from "@/components/shared/SEO";
+import { Link } from "react-router-dom";
 
 const FreePackPage = () => {
   const checklist = [
@@ -62,14 +63,12 @@ const FreePackPage = () => {
             <p className="text-sm text-muted-foreground mb-4 sm:mb-6">
               Want the full debugging playbook with 10+ in-depth articles?
             </p>
-            <a
-              href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-secondary w-full sm:w-auto"
+            <Link
+              to="/fastapi"
+              className="btn-primary inline-flex items-center justify-center"
             >
-              Get FastAPI Backend Pack #1 · 29 €
-            </a>
+              View FastAPI Backend Pack #1
+            </Link>
           </div>
         </div>
       </section>

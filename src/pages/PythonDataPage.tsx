@@ -42,19 +42,23 @@ const whyItsWorthIt = [
 const faqItems = [
   {
     question: "Do I need big data tools for this?",
-    answer: "No. This pack is about getting the most out of plain Python and pandas before you need heavy infrastructure.",
+    answer:
+      "No. This pack is about getting the most out of plain Python and pandas before you need heavy infrastructure.",
   },
   {
     question: "Can I use this with Jupyter notebooks?",
-    answer: "Yes. The articles are written so you can apply them in notebooks and then move working patterns into scripts and pipelines.",
+    answer:
+      "Yes. The articles are written so you can apply them in notebooks and then move working patterns into scripts and pipelines.",
   },
   {
     question: "Do I get updates?",
-    answer: "Yes. When the engine produces new high-quality Python data articles, they're added to the pack. You get lifetime access to updates.",
+    answer:
+      "Yes. When the engine produces new high-quality Python data articles, they're added to the pack. You get lifetime access to updates.",
   },
   {
     question: "Will this replace full data-engineering books?",
-    answer: "No. It’s a focused playbook for concrete, recurring problems – performance, memory, cleaning, ETL structure – not a generic textbook.",
+    answer:
+      "No. It’s a focused playbook for concrete, recurring problems – performance, memory, cleaning, ETL structure – not a generic textbook.",
   },
 ];
 
@@ -95,14 +99,27 @@ const PythonDataPage = () => {
           label: "Browse free articles",
           href: HUGO_PYDATA_ARTICLES,
         }}
+        prePurchase={{
+          title: "Python Data Engineering Pack #1",
+          headline: "Make sure the data pack is a fit.",
+          intro: "ETL, pandas performance, and pipeline reliability. Quick fit-check before you buy.",
+          whoFor: [
+            "You run ETL jobs and need them faster and more reliable.",
+            "You hit pandas performance/memory limits and want repeatable optimization patterns.",
+            "You build pipelines end-to-end and want clean extract/transform/load structure.",
+          ],
+          whoNotFor: [
+            "You want a Spark/BigQuery-only course (this is Python + pandas centric).",
+            "You only do tiny notebook demos and don’t care about reliability or logging.",
+            "You expect a theory-heavy textbook instead of applied recipes.",
+          ],
+        }}
+
       />
 
       <WhatsInside items={whatsInsideItems} />
 
-      <ValueProposition
-        whoIsThisFor={whoIsThisFor}
-        whyItsWorthIt={whyItsWorthIt}
-      />
+      <ValueProposition whoIsThisFor={whoIsThisFor} whyItsWorthIt={whyItsWorthIt} />
 
       <FAQ items={faqItems} />
     </Layout>
