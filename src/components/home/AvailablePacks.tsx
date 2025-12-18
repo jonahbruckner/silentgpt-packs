@@ -61,7 +61,7 @@ function PythonDataMark() {
 
 export function AvailablePacks() {
   return (
-    <section className="py-20 sm:py-28 md:py-32 border-t border-border/30">
+    <section id="packs" className="py-20 sm:py-28 md:py-32 border-t border-border/30 scroll-mt-20">
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14 sm:mb-16 md:mb-20 animate-fade-up">
           <span className="section-label mb-4 block">PRODUCTS</span>

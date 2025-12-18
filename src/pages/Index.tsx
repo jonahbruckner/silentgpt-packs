@@ -6,7 +6,6 @@ import { AvailablePacks } from "@/components/home/AvailablePacks";
 import { WhoIsThisFor } from "@/components/home/WhoIsThisFor";
 import { WhyNotGoogle } from "@/components/home/WhyNotGoogle";
 import { FeaturedArticles } from "@/components/home/FeaturedArticles";
-import { FreePackTeaser } from "@/components/home/FreePackTeaser";
 import { NewsletterSection } from "@/components/home/NewsletterSection";
 
 const Index = () => {
@@ -24,7 +23,6 @@ const Index = () => {
       <WhoIsThisFor />
       <WhyNotGoogle />
       <FeaturedArticles />
-      <FreePackTeaser />
       <NewsletterSection />
     </Layout>
   );

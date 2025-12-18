@@ -156,30 +156,64 @@ const BlogPostPage = () => {
     };
   }, []);
 
-  // Active section indicator
+  // Active section indicator (scrollspy)
   useEffect(() => {
-    const headings = Array.from(document.querySelectorAll("h2[id], h3[id]")) as HTMLElement[];
-    if (!headings.length) return;
+    const updateActiveHeading = () => {
+      const headings = Array.from(document.querySelectorAll("h2[id], h3[id]")) as HTMLElement[];
+      if (!headings.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0));
+      // Find the heading closest to top 25% of viewport
+      const triggerPoint = window.innerHeight * 0.28;
+      let activeHeading: HTMLElement | null = null;
 
-        if (visible[0]?.target?.id) {
-          setActiveId(visible[0].target.id);
+      for (const heading of headings) {
+        const rect = heading.getBoundingClientRect();
+        // If heading is above trigger point, it's the current section
+        if (rect.top <= triggerPoint) {
+          activeHeading = heading;
+        } else {
+          break;
         }
-      },
-      {
-        root: null,
-        rootMargin: "-20% 0px -70% 0px",
-        threshold: [0.05, 0.1, 0.2, 0.4, 0.6],
       }
-    );
 
-    headings.forEach((h) => observer.observe(h));
-    return () => observer.disconnect();
+      // If no heading is above trigger, use first visible one
+      if (!activeHeading && headings.length > 0) {
+        for (const heading of headings) {
+          const rect = heading.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top <= window.innerHeight) {
+            activeHeading = heading;
+            break;
+          }
+        }
+      }
+
+      if (activeHeading?.id) {
+        setActiveId(activeHeading.id);
+      }
+    };
+
+    // Initial check
+    updateActiveHeading();
+
+    // Throttled scroll handler
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveHeading();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", updateActiveHeading);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", updateActiveHeading);
+    };
   }, [post.slug, contentWithoutTitle]);
 
   // Programmatic scroll for TOC
@@ -418,7 +452,7 @@ const BlogPostPage = () => {
                     <div className="text-sm font-semibold text-foreground mb-4">On this page</div>
 
                     {toc.length ? (
-                      <nav className="space-y-1.5">
+                      <nav className="space-y-0.5">
                         {toc.map((item) => {
                           const isActive = item.id === activeId;
                           return (
@@ -427,16 +461,24 @@ const BlogPostPage = () => {
                               type="button"
                               onClick={() => scrollToId(item.id)}
                               className={cn(
-                                "w-full text-left rounded-lg px-2 py-1.5 text-sm transition-colors",
-                                "text-muted-foreground hover:text-foreground hover:bg-background/35",
-                                item.level === 3 && "pl-5 text-[0.92rem]",
-                                isActive && "text-foreground bg-background/45 border border-border/40"
+                                "group relative w-full text-left py-2 pr-2 text-sm transition-all duration-200",
+                                item.level === 3 ? "pl-6" : "pl-3",
+                                isActive
+                                  ? "text-cyan-300"
+                                  : "text-muted-foreground/70 hover:text-foreground"
                               )}
                             >
-                              <span className="inline-flex items-center gap-2">
-                                <span className={cn("h-1.5 w-1.5 rounded-full bg-muted-foreground/40", isActive && "bg-cyan-300")} aria-hidden="true" />
-                                {item.text}
-                              </span>
+                              {/* Active left border indicator */}
+                              <span
+                                className={cn(
+                                  "absolute left-0 top-1/2 -translate-y-1/2 w-[2px] rounded-full transition-all duration-200",
+                                  isActive
+                                    ? "h-5 bg-cyan-400"
+                                    : "h-0 bg-transparent group-hover:h-3 group-hover:bg-muted-foreground/30"
+                                )}
+                                aria-hidden="true"
+                              />
+                              <span className="line-clamp-2">{item.text}</span>
                             </button>
                           );
                         })}

@@ -19,7 +19,7 @@ export function Hero() {
               >
                 <span className="gradient-text">SilentGPT Dev Engine</span>
                 <span className="block text-foreground mt-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-snug">
-                  – curated content packs for real backend work.
+                  – Production-grade FastAPI & Python debugging guides — curated, structured, Markdown-ready.
                 </span>
               </h1>
             </div>
@@ -36,11 +36,17 @@ export function Hero() {
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2 opacity-0 animate-fade-up"
               style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
             >
-              <Link to="/fastapi" className="btn-primary w-full sm:w-auto">
-                See FastAPI Backend Pack
+              <a href="#packs" className="btn-primary w-full sm:w-auto" onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('packs')?.scrollIntoView({ behavior: 'smooth' });
+              }}>
+                View Packs
+              </a>
+              <Link to="/fastapi" className="btn-secondary w-full sm:w-auto">
+                FastAPI Pack
               </Link>
               <Link to="/python-data" className="btn-secondary w-full sm:w-auto">
-                See Python Data Engineering Pack
+                Python Data Pack
               </Link>
             </div>
 
@@ -58,7 +64,7 @@ export function Hero() {
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-cyan-400" />
                   <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                    Questions In
+                    Sample topics included
                   </span>
                 </div>
                 <div className="space-y-2 pl-4">
@@ -76,7 +82,7 @@ export function Hero() {
 
               <div className="flex items-center gap-2 py-2">
                 <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/50 to-transparent" />
-                <span className="text-xs text-muted-foreground">LLM Drafts</span>
+                <span className="text-xs text-muted-foreground">AI-assisted → Human-edited</span>
                 <div className="flex-1 h-px bg-gradient-to-l from-emerald-500/50 to-transparent" />
               </div>
 

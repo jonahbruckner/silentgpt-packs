@@ -14,11 +14,10 @@ const navItems = [
   { label: "Python Data Pack", href: "/python-data" },
   { label: "Blog", href: "/blog" },
   { label: "Newsletter", href: "/newsletter" },
-  { label: "Free Pack", href: "/free-pack" },
 ];
 
-function BrandMark() {
-  // Simple, crisp SVG mark (no external assets required)
+// Option 1: Hexagonal/modular "engine" mark - geometric, tech-forward
+function BrandMarkOption1() {
   return (
     <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-border/40 flex items-center justify-center">
       <svg
@@ -29,16 +28,72 @@ function BrandMark() {
         aria-hidden="true"
         className="text-cyan-300"
       >
-        {/* spark/engine mark */}
+        {/* Hexagonal core with inner connection lines */}
         <path
-          d="M13 2L4 14h7l-1 8 10-14h-7l0-6z"
+          d="M12 2L21 7V17L12 22L3 17V7L12 2Z"
           stroke="currentColor"
-          strokeWidth="2"
-          strokeLinejoin="round"
+          strokeWidth="1.5"
+          fill="none"
         />
+        <path
+          d="M12 8L16 10.5V15.5L12 18L8 15.5V10.5L12 8Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          fill="currentColor"
+          fillOpacity="0.2"
+        />
+        <circle cx="12" cy="12" r="2" fill="currentColor" />
       </svg>
     </div>
   );
+}
+
+// Option 2: Abstract "S" with data flow - represents SilentGPT processing
+function BrandMarkOption2() {
+  return (
+    <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-border/40 flex items-center justify-center">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        className="text-cyan-300"
+      >
+        {/* Stylized S-curve with nodes representing data processing */}
+        <path
+          d="M7 6C7 6 10 6 12 8C14 10 14 14 12 16C10 18 7 18 7 18"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+        />
+        <path
+          d="M17 6C17 6 14 6 12 8"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+        />
+        <path
+          d="M17 18C17 18 14 18 12 16"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          fill="none"
+        />
+        <circle cx="7" cy="6" r="1.5" fill="currentColor" />
+        <circle cx="17" cy="6" r="1.5" fill="currentColor" />
+        <circle cx="7" cy="18" r="1.5" fill="currentColor" />
+        <circle cx="17" cy="18" r="1.5" fill="currentColor" />
+      </svg>
+    </div>
+  );
+}
+
+// Using Option 1 (hexagonal engine) as default - more distinctive and tech-forward
+function BrandMark() {
+  return <BrandMarkOption1 />;
 }
 
 export function Navbar() {

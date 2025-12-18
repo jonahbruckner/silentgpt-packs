@@ -33,18 +33,6 @@ export function Footer() {
               >
                 Newsletter
               </Link>
-              <Link 
-                to="/free-pack" 
-                className="text-xs sm:text-sm text-muted-foreground/70 hover:text-muted-foreground transition-colors py-1"
-              >
-                Free Pack
-              </Link>
-              <Link 
-                to="/resources/social-templates" 
-                className="text-xs sm:text-sm text-muted-foreground/70 hover:text-muted-foreground transition-colors py-1"
-              >
-                Social Templates
-              </Link>
             </div>
           </div>
           
