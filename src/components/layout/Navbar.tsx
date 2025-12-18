@@ -17,6 +17,30 @@ const navItems = [
   { label: "Free Pack", href: "/free-pack" },
 ];
 
+function BrandMark() {
+  // Simple, crisp SVG mark (no external assets required)
+  return (
+    <div className="h-9 w-9 rounded-xl bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-border/40 flex items-center justify-center">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        className="text-cyan-300"
+      >
+        {/* spark/engine mark */}
+        <path
+          d="M13 2L4 14h7l-1 8 10-14h-7l0-6z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
+}
+
 export function Navbar() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -27,7 +51,7 @@ export function Navbar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
-  // Scroll lock while sheet is open (extra-safe across browsers)
+  // Scroll lock while sheet is open
   useEffect(() => {
     document.documentElement.classList.toggle("overflow-hidden", open);
     return () => document.documentElement.classList.remove("overflow-hidden");
@@ -36,8 +60,8 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-500 to-emerald-500 flex-shrink-0" />
+        <Link to="/" className="flex items-center gap-3">
+          <BrandMark />
           <span className="text-base sm:text-lg font-semibold text-foreground truncate">
             SilentGPT Dev Engine
           </span>
@@ -56,16 +80,8 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
-          <a
-            href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary hidden sm:inline-flex text-sm px-4 py-2.5"
-          >
-            Get the packs
-          </a>
-
+        {/* Right side: only burger on mobile */}
+        <div className="flex items-center">
           {/* Mobile menu (Sheet) */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
@@ -91,7 +107,11 @@ export function Navbar() {
               "
             >
               <div className="flex items-center justify-between">
-                <div className="text-foreground font-semibold">Menu</div>
+                <div className="flex items-center gap-3">
+                  <BrandMark />
+                  <div className="text-foreground font-semibold">Menu</div>
+                </div>
+
                 <SheetClose asChild>
                   <button
                     className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -121,19 +141,6 @@ export function Navbar() {
                   </SheetClose>
                 ))}
               </nav>
-
-              <div className="mt-6 pt-4 border-t border-border/50">
-                <SheetClose asChild>
-                  <a
-                    href="https://silentgpt.gumroad.com/l/fastapi-backend-pack-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-full text-center"
-                  >
-                    Get the packs
-                  </a>
-                </SheetClose>
-              </div>
             </SheetContent>
           </Sheet>
         </div>

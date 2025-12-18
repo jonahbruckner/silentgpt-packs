@@ -1,78 +1,144 @@
 import { Link } from "react-router-dom";
 
-const packs = [
-  {
-    title: "FastAPI Backend Pack #1",
-    description: "Debugging & architecture playbook for FastAPI APIs – with a full debugging blueprint plus 10+ focused recipes for SQLModel, async, logging and structure.",
-    price: "29 €",
-    href: "/fastapi",
-    freeArticles: "https://silentgpt-dev-engine.netlify.app/fastapi/articles/",
-    gradient: "from-cyan-500 to-blue-500",
-  },
-  {
-    title: "Python Data Engineering Pack #1",
-    description: "Performance & reliability playbook for pandas and ETL – from chunking big CSVs to structuring robust data pipelines.",
-    price: "29 €",
-    href: "/python-data",
-    freeArticles: "https://silentgpt-dev-engine.netlify.app/python-data/articles/",
-    gradient: "from-emerald-500 to-teal-500",
-  },
-];
+function FastAPIMark() {
+  // "Lightning / API engine" feel
+  return (
+    <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-border/40 flex items-center justify-center">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        className="text-cyan-300"
+      >
+        <path
+          d="M13 2L4 14h7l-1 8 10-14h-7l0-6z"
+          stroke="currentColor"
+          strokeWidth="2.2"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
+}
+
+function PythonDataMark() {
+  // "Database + pipeline" feel
+  return (
+    <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-border/40 flex items-center justify-center">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+        className="text-emerald-300"
+      >
+        {/* simple database */}
+        <path
+          d="M12 3c4.418 0 8 1.343 8 3s-3.582 3-8 3-8-1.343-8-3 3.582-3 8-3Z"
+          stroke="currentColor"
+          strokeWidth="2.2"
+        />
+        <path
+          d="M4 6v6c0 1.657 3.582 3 8 3s8-1.343 8-3V6"
+          stroke="currentColor"
+          strokeWidth="2.2"
+        />
+        <path
+          d="M4 12v6c0 1.657 3.582 3 8 3s8-1.343 8-3v-6"
+          stroke="currentColor"
+          strokeWidth="2.2"
+        />
+      </svg>
+    </div>
+  );
+}
 
 export function AvailablePacks() {
   return (
-    <section className="py-16 sm:py-20 md:py-24">
+    <section className="py-20 sm:py-24">
       <div className="container px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <p className="section-label mb-3 sm:mb-4">Products</p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="section-label text-cyan-400 mb-4 block">PRODUCTS</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
             Available packs
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-          {packs.map((pack) => (
-            <div
-              key={pack.title}
-              className="relative group"
-            >
-              {/* Glow effect */}
-              <div className={`absolute inset-0 bg-gradient-to-r ${pack.gradient} opacity-0 group-hover:opacity-10 blur-2xl transition-opacity duration-500 rounded-3xl`} />
-              
-              <div className="relative card-glass p-6 sm:p-8 h-full flex flex-col glow-box">
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br ${pack.gradient} mb-4 sm:mb-6 flex-shrink-0`} />
-                
-                <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2 sm:mb-3">
-                  {pack.title}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto">
+          {/* FastAPI */}
+          <div className="card-glass rounded-3xl p-7 sm:p-8 border border-border/40">
+            <div className="flex items-start gap-4 mb-6">
+              <FastAPIMark />
+              <div>
+                <h3 className="text-xl font-semibold text-foreground">
+                  FastAPI Backend Pack #1
                 </h3>
-                
-                <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6 flex-1">
-                  {pack.description}
+                <p className="text-muted-foreground mt-2">
+                  Debugging & architecture playbook for FastAPI APIs – with a full debugging
+                  blueprint plus 10+ focused recipes for SQLModel, async, logging and structure.
                 </p>
-
-                <div className="space-y-4">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-xl sm:text-2xl font-bold text-foreground">{pack.price}</span>
-                    <span className="text-sm text-muted-foreground">· one-time</span>
-                  </div>
-
-                  <div className="flex flex-col gap-3">
-                    <Link to={pack.href} className="btn-primary text-center w-full">
-                      View Pack Page
-                    </Link>
-                    <a
-                      href={pack.freeArticles}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-ghost text-center"
-                    >
-                      Preview Free Articles →
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
-          ))}
+
+            <div className="flex items-baseline gap-2 mb-6">
+              <span className="text-2xl font-bold text-foreground">29 €</span>
+              <span className="text-sm text-muted-foreground">· one-time</span>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <Link to="/fastapi" className="btn-primary text-center w-full">
+                View Pack Page
+              </Link>
+
+              <a
+                href="https://silentgpt-dev-engine.netlify.app/fastapi/articles/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost text-center w-full"
+              >
+                Preview Free Articles →
+              </a>
+            </div>
+          </div>
+
+          {/* Python Data */}
+          <div className="card-glass rounded-3xl p-7 sm:p-8 border border-border/40">
+            <div className="flex items-start gap-4 mb-6">
+              <PythonDataMark />
+              <div>
+                <h3 className="text-xl font-semibold text-foreground">
+                  Python Data Engineering Pack #1
+                </h3>
+                <p className="text-muted-foreground mt-2">
+                  Performance & reliability playbook for pandas and ETL – from chunking big CSVs
+                  to structuring robust data pipelines.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-baseline gap-2 mb-6">
+              <span className="text-2xl font-bold text-foreground">29 €</span>
+              <span className="text-sm text-muted-foreground">· one-time</span>
+            </div>
+
+            <div className="flex flex-col gap-3">
+              <Link to="/python-data" className="btn-primary text-center w-full">
+                View Pack Page
+              </Link>
+
+              <a
+                href="https://silentgpt-dev-engine.netlify.app/python-data/articles/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost text-center w-full"
+              >
+                Preview Free Articles →
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
