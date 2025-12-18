@@ -2,12 +2,11 @@
 id: q_pydata_0201_d13
 draft_id: q_pydata_0201_d13
 topic: python-data
-title: How can I systematically speed up pandas-based data processing scripts, and how do I decide whether a pipeline is CPU-bound, I/O-bound or memory-bound before optimizing
+title: "Systematically speed up pandas-based data processing scripts"
 slug: how-can-i-systematically-speed-up-pandas-based-data-processing-scripts-and-how-do-i-decide-whether-a-pipeline-is-cpu-bound-i/o-bound-or-memory-bound-before-optimizing
 level: intermediate
 published_at: 2025-12-18
 ---
-
 # How can I systematically speed up pandas-based data processing scripts, and how do I decide whether a pipeline is CPU-bound, I/O-bound or memory-bound before optimizing
 
 # Optimizing Pandas-Based Data Processing Scripts: A Step-by-Step Approach

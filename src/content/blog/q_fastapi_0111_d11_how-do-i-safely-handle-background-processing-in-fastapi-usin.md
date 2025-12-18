@@ -2,12 +2,11 @@
 id: q_fastapi_0111_d11
 draft_id: q_fastapi_0111_d11
 topic: fastapi
-title: How do I safely handle background processing in FastAPI using BackgroundTasks, Celery or RQ, and what patterns prevent data loss, inconsistent state or stuck tasks
+title: "Safely handle background processing in FastAPI using BackgroundTasks"
 slug: how-do-i-safely-handle-background-processing-in-fastapi-using-backgroundtasks-celery-or-rq-and-what-patterns-prevent-data-loss-inconsistent-state-or-stuck-tasks
 level: intermediate
 published_at: 2025-12-18
 ---
-
 # How do I safely handle background processing in FastAPI using BackgroundTasks, Celery or RQ, and what patterns prevent data loss, inconsistent state or stuck tasks
 
 # Safe Background Processing in FastAPI: A Step-by-Step Guide

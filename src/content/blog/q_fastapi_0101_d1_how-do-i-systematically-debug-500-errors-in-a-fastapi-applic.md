@@ -2,12 +2,11 @@
 id: q_fastapi_0101_d1
 draft_id: q_fastapi_0101_d1
 topic: fastapi
-title: How do I systematically debug 500 errors in a FastAPI application running on Uvicorn or Gunicorn, and how can I reliably identify whether the root cause is related to imports, dependencies, SQLModel sessions or environment variables
+title: "Systematically debug 500 errors in a FastAPI application running on Uvi…"
 slug: how-do-i-systematically-debug-500-errors-in-a-fastapi-application-running-on-uvicorn-or-gunicorn-and-how-can-i-reliably-identify-whether-the-root-cause-is-related-to-imports-dependencies-sqlmodel-sessions-or-environment-variables
 level: intermediate
 published_at: 2025-12-18
 ---
-
 # How do I systematically debug 500 errors in a FastAPI application running on Uvicorn or Gunicorn, and how can I reliably identify whether the root cause is related to imports, dependencies, SQLModel sessions or environment variables
 
 **Debugging 500 Errors in FastAPI Applications**

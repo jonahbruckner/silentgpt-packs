@@ -2,12 +2,11 @@
 id: q_fastapi_0110_d10
 draft_id: q_fastapi_0110_d10
 topic: fastapi
-title: How can I profile performance issues in FastAPI endpoints, detect slow database queries, identify inefficient dependency logic, and improve overall latency without premature optimization
+title: "Profile performance issues in FastAPI endpoints"
 slug: how-can-i-profile-performance-issues-in-fastapi-endpoints-detect-slow-database-queries-identify-inefficient-dependency-logic-and-improve-overall-latency-without-premature-optimization
 level: intermediate
 published_at: 2025-12-18
 ---
-
 # How can I profile performance issues in FastAPI endpoints, detect slow database queries, identify inefficient dependency logic, and improve overall latency without premature optimization
 
 # Profiling Performance Issues in FastAPI Endpoints

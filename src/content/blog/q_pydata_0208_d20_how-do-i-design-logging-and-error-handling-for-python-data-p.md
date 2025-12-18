@@ -2,12 +2,11 @@
 id: q_pydata_0208_d20
 draft_id: q_pydata_0208_d20
 topic: python-data
-title: How do I design logging and error-handling for Python data pipelines so that I can trace failures, understand which input caused them, and rerun only the failing parts
+title: "Design logging and error-handling for Python data pipelines so that I c…"
 slug: how-do-i-design-logging-and-error-handling-for-python-data-pipelines-so-that-i-can-trace-failures-understand-which-input-caused-them-and-rerun-only-the-failing-parts
 level: intermediate
 published_at: 2025-12-18
 ---
-
 # How do I design logging and error-handling for Python data pipelines so that I can trace failures, understand which input caused them, and rerun only the failing parts
 
 **Designing Robust Logging and Error Handling for Python Data Pipelines**
