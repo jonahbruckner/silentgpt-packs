@@ -5,6 +5,7 @@ topic: fastapi
 title: What is a robust, production-safe pattern for managing SQLModel or SQLAlchemy sessions in FastAPI using dependency injection, and how can I avoid session leaks, 'event loop is closed' errors and connection exhaustion
 slug: what-is-a-robust-production-safe-pattern-for-managing-sqlmodel-or-sqlalchemy-sessions-in-fastapi-using-dependency-injection-and-how-can-i-avoid-session-leaks-event-loop-is-closed-errors-and-connection-exhaustion
 level: intermediate
+published_at: 2025-12-18
 ---
 
 # What is a robust, production-safe pattern for managing SQLModel or SQLAlchemy sessions in FastAPI using dependency injection, and how can I avoid session leaks, 'event loop is closed' errors and connection exhaustion

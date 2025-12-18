@@ -5,6 +5,7 @@ topic: python-data
 title: How do I structure a configuration layer for Python data scripts (paths, table names, credentials, feature flags) so that the pipeline stays flexible across environments
 slug: how-do-i-structure-a-configuration-layer-for-python-data-scripts-paths-table-names-credentials-feature-flags-so-that-the-pipeline-stays-flexible-across-environments
 level: intermediate
+published_at: 2025-12-18
 ---
 
 # How do I structure a configuration layer for Python data scripts (paths, table names, credentials, feature flags) so that the pipeline stays flexible across environments

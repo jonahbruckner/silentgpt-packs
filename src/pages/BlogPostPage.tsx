@@ -105,8 +105,11 @@ const BlogPostPage = () => {
 
   if (!post) return <Navigate to="/blog" replace />;
 
-  const parsedDate = Date.parse(post.date);
-  const hasValidDate = Boolean(post.date) && !Number.isNaN(parsedDate);
+  const parsedDate = post.published_at
+  ? Date.parse(post.published_at)
+  : NaN;
+  const hasValidDate =
+  Boolean(post.published_at) && !Number.isNaN(Date.parse(post.published_at!));
   const dateLabel = hasValidDate
     ? new Date(parsedDate).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })
     : null;

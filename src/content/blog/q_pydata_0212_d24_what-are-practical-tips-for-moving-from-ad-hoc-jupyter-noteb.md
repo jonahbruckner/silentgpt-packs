@@ -5,6 +5,7 @@ topic: python-data
 title: What are practical tips for moving from ad-hoc Jupyter notebooks to reproducible Python data pipelines, while keeping the ability to explore data interactively
 slug: what-are-practical-tips-for-moving-from-ad-hoc-jupyter-notebooks-to-reproducible-python-data-pipelines-while-keeping-the-ability-to-explore-data-interactively
 level: intermediate
+published_at: 2025-12-18
 ---
 
 # What are practical tips for moving from ad-hoc Jupyter notebooks to reproducible Python data pipelines, while keeping the ability to explore data interactively

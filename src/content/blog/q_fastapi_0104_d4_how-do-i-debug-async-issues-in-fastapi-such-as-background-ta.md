@@ -5,6 +5,7 @@ topic: fastapi
 title: How do I debug async issues in FastAPI, such as background tasks never firing, hanging endpoints, swallowed exceptions, or mixing sync and async code incorrectly
 slug: how-do-i-debug-async-issues-in-fastapi-such-as-background-tasks-never-firing-hanging-endpoints-swallowed-exceptions-or-mixing-sync-and-async-code-incorrectly
 level: intermediate
+published_at: 2025-12-18
 ---
 
 # How do I debug async issues in FastAPI, such as background tasks never firing, hanging endpoints, swallowed exceptions, or mixing sync and async code incorrectly

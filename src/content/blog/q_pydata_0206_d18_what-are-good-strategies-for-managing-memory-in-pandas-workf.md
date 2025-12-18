@@ -5,6 +5,7 @@ topic: python-data
 title: What are good strategies for managing memory in pandas workflows, including dtype optimization, downcasting and using category types effectively
 slug: what-are-good-strategies-for-managing-memory-in-pandas-workflows-including-dtype-optimization-downcasting-and-using-category-types-effectively
 level: intermediate
+published_at: 2025-12-18
 ---
 
 # What are good strategies for managing memory in pandas workflows, including dtype optimization, downcasting and using category types effectively

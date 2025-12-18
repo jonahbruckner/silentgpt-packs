@@ -3,7 +3,18 @@ export type BlogTopic = "fastapi" | "python-data" | "other";
 export type BlogPost = {
   title: string;
   slug: string;
-  date: string;
+
+  /**
+   * PUBLIC: only show this on the website
+   * Use ISO date: YYYY-MM-DD (recommended)
+   */
+  published_at?: string;
+
+  /**
+   * Legacy / internal fallback. Keep for compatibility but don't display.
+   */
+  date?: string;
+
   excerpt: string;
   content: string;
   topic: BlogTopic;
@@ -37,10 +48,8 @@ function parseFrontmatter(fileContent: string): {
 function inferTopic(slug: string, title: string): BlogTopic {
   const s = `${slug} ${title}`.toLowerCase();
 
-  // Prefer explicit FastAPI detection
   if (s.includes("fastapi")) return "fastapi";
 
-  // Data engineering signals
   if (
     s.includes("python-data") ||
     s.includes("data-engineering") ||
@@ -59,11 +68,10 @@ function inferTopic(slug: string, title: string): BlogTopic {
 // Load markdown files
 const posts = Object.entries(
   import.meta.glob("../content/blog/**/*.md", {
-  query: "?raw",
-  import: "default",
-  eager: true,
-})
-
+    query: "?raw",
+    import: "default",
+    eager: true,
+  })
 )
   .map(([filepath, fileContent]) => {
     const { data, content } = parseFrontmatter(fileContent as string);
@@ -74,25 +82,31 @@ const posts = Object.entries(
       "";
 
     const title = data.title || slug.replace(/[-_]/g, " ");
-    const date = data.date || "";
     const excerpt = data.excerpt || "";
+
+    // NEW: published_at is the only public date
+    const published_at = data.published_at || "";
+
+    // Legacy fallback (kept for compatibility, not shown)
+    const date = data.date || "";
 
     const topic = (data.topic as BlogTopic) || inferTopic(slug, title);
 
     return {
       title,
       slug,
-      date,
+      published_at: published_at || undefined,
+      date: date || undefined,
       excerpt,
       content: content.trim(),
       topic,
     } satisfies BlogPost;
   })
   .sort((a, b) => {
-    const aTime = Date.parse(a.date);
-    const bTime = Date.parse(b.date);
+    // Sort ONLY by published_at; posts without published_at go to the bottom.
+    const aTime = a.published_at ? Date.parse(a.published_at) : NaN;
+    const bTime = b.published_at ? Date.parse(b.published_at) : NaN;
 
-    // Posts with invalid/missing dates go to the bottom
     const aValid = !Number.isNaN(aTime);
     const bValid = !Number.isNaN(bTime);
 

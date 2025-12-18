@@ -5,6 +5,7 @@ topic: python-data
 title: How do I design a clean ETL script structure in Python that separates extract, transform and load steps, keeps data cleaning isolated, and stays testable over time
 slug: how-do-i-design-a-clean-etl-script-structure-in-python-that-separates-extract-transform-and-load-steps-keeps-data-cleaning-isolated-and-stays-testable-over-time
 level: intermediate
+published_at: 2025-12-18
 ---
 
 # How do I design a clean ETL script structure in Python that separates extract, transform and load steps, keeps data cleaning isolated, and stays testable over time
